@@ -1,13 +1,15 @@
 .container{
     display:flex;
     flex-direction: column;
+
     align-items: center;
     margin: auto;
     margin-top: 200px;
     width: 600px;
-    background: #fff;
+    background: rgb(205, 215, 236);
     padding-bottom: 30px;
-    
+    opacity: 0.8;
+        
 }
 .header{
     display: flex;
@@ -58,7 +60,7 @@
     background: transparent;
     border: none;
     outline: none;
-    color: #797979;
+    color: black;
     font-size: 19px;
 }
 
@@ -97,4 +99,11 @@
 .gray{
     background: #eaeaea;
     color: #676767;
+}
+html{
+    background-image: url("./family.jpeg"), linear-gradient(rgba(9, 90, 203, 0.873),rgba(140, 164, 190, 0.5));
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
