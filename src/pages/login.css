@@ -114,12 +114,12 @@
     color: #111010;
 }
 
-html{
-    background-image: url(family2.jpg),linear-gradient(rgba(10, 18, 111, 0.701),rgba(12, 10, 14, 0.867));
-   background-blend-mode: overlay;
-    background-repeat: no-repeat;
+/* body{
+    background-image: linear-gradient(rgba(10, 18, 111, 0.701),rgba(12, 10, 14, 0.867));
+    background-blend-mode: overlay;
     background-size: cover;
-}
+    background-repeat: no-repeat;
+} */
 .imge{
     display: flex;
     position: absolute;

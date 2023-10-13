@@ -1,0 +1,16 @@
+.nav{
+    display: flex;
+    background-color:lightseagreen;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav_container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+}
+.nav_container a{
+    margin-right:20px;
+    text-decoration: none;
+}

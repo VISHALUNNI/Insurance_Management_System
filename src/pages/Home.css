@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+.HomePage{
+    font-family: 'Lora', serif;
+}
+.AboutUs{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
+    }
+.AboutUs h1{
+    text-align: center;
+}
