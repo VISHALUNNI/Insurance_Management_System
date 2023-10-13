@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import user_icon from './person.png'
 import email_icon from './email.png'
 import password_icon from './password.png'
+import logo_icon from './Layer.png'
 import './login.css'
 
 const login = () => {
@@ -10,6 +11,11 @@ const login = () => {
 
   return (
 	<div className='container'>
+   
+    
+    
+   
+<div className='main'></div>
     <div className="header">
       <div className="text">{action}</div>
         <div className="underline"></div>
