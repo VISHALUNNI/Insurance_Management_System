@@ -4,14 +4,6 @@
     flex-direction: column;
     align-items: center;
     margin: auto;
-<<<<<<< HEAD:src/pages/login.css
-    margin-top: 200px;
-    width: 600px;
-    background: rgb(205, 215, 236);
-    padding-bottom: 30px;
-    opacity: 0.8;
-        
-=======
     margin-top: 97px;
     margin-bottom: 62px;
     margin-left: 50px;
@@ -25,7 +17,6 @@
     box-shadow: 0 0 30px rgb(0, 0, 0);
 
 
->>>>>>> 386b809efb06ea3e596d421b9c0178ecb501aa7f:src/assets/login.css
 }
 .header{
     display: flex;
@@ -81,11 +72,7 @@
     background:transparent;
     border: none;
     outline: none;
-<<<<<<< HEAD:src/pages/login.css
-    color: black;
-=======
     color: rgb(0, 0, 0);
->>>>>>> 386b809efb06ea3e596d421b9c0178ecb501aa7f:src/assets/login.css
     font-size: 19px;
 }
 
@@ -127,15 +114,6 @@
     background: #ffffff;
     color: #111010;
 }
-<<<<<<< HEAD:src/pages/login.css
- /* html{
-    background-image: url("./family.jpeg"), linear-gradient(rgba(9, 90, 203, 0.873),rgba(140, 164, 190, 0.5));
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}  */
-=======
 
 html{
     background-image: url(family2.jpg),linear-gradient(rgba(10, 18, 111, 0.701),rgba(12, 10, 14, 0.867));
@@ -169,4 +147,3 @@ html{
   }
  
 
->>>>>>> 386b809efb06ea3e596d421b9c0178ecb501aa7f:src/assets/login.css
