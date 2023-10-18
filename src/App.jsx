@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 
 // pages
 import Home from "./pages/Home"
-import AuthPage from "./pages/Authpage";
+import AuthPage from "./pages/AuthPage";
 import './app.css'
 import PolicyPage from './pages/PolicyPage';
 import ClaimsPage from "./pages/ClaimsPage";
