@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 
 // pages
 import Home from "./pages/Home"
-import AuthPage from "./pages/AuthPage";
+//iiimport AuthPage from "./pages/AuthPage";
 import './app.css'
 import PolicyPage from './pages/PolicyPage';
 import ClaimsPage from "./pages/ClaimsPage";
@@ -20,14 +20,13 @@ function App() {
       <Link to="/">Home</Link>
       <Link to="/claims">Manage Claims</Link>
       <Link to="/policies">Manage Policies</Link>
-      <Link to="/auth">Login / Sign Up</Link>
+      <Link to="/login">Login / Sign Up</Link>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/auth" element={<AuthPage/>}/>
-        <Route path="/auth/login" element={<LoginPage/>}/>
-        <Route path="/auth/signup" element={<SignupPage/>}/>
-        <Route path="/auth/forgot-password" element={<ForgotPasswordPage/>}/>
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/signup" element={<SignupPage/>}/>
+        <Route path="/forgot-password" element={<ForgotPasswordPage/>}/>
         <Route path="/claims" element={<ClaimsPage/>}/>
         <Route path="/policies" element={<PolicyPage/>} />
         <Route path="/health-insurance" element={<HealthInsurancePage/>}/>
