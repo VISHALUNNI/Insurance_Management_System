@@ -44,10 +44,10 @@ const LoginPage = () => {
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <p className='login-signup-link'>
-        New user? <Link to="/auth/signup">Sign up here</Link>
+        New user? <Link to="/signup">Sign up here</Link>
       </p>
       <p className='forgot-password-link'>  
-        <Link to="/auth/forgot-password">Forgot Password?</Link>
+        <Link to="/forgot-password">Forgot Password?</Link>
       </p>
     </div>
   );
