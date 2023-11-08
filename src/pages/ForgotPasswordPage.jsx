@@ -31,7 +31,7 @@ const ForgotPasswordPage = () => {
       </form>
       <div className="nav-links">
       <p>
-        Remember your password? <Link to="/auth/login">Login</Link>
+        Remember your password? <Link to="/login">Login</Link>
       </p>
       </div>
     </div>
