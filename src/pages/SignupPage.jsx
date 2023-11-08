@@ -42,10 +42,10 @@ const SignupPage = () => {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <div className="nav-links">
       <p className='signup-login-link'>
-        Already have an account? <Link to="/auth/login">Login</Link>
+        Already have an account? <Link to="/login">Login</Link>
       </p>
       <p>
-        <Link to="/auth/forgot-password">Forgot Password?</Link>
+        <Link to="auth/forgot-password">Forgot Password?</Link>
       </p>
       </div>
     </div>
