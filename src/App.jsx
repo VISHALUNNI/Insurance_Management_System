@@ -11,6 +11,8 @@ import VehicleInsurancePage from "./pages/VehicleInsurancePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import CreateProfilePage from "./pages/CreateProfilePage";
+import Dashboard from "./pages/DashBoard";
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
         <Route path="/policies" element={<PolicyPage/>} />
         <Route path="/health-insurance" element={<HealthInsurancePage/>}/>
         <Route path="/vehicle-insurance" element={<VehicleInsurancePage/>}/>
+        <Route path="/create-profile" element ={<CreateProfilePage/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/> 
       </Routes>
     </BrowserRouter>
   );

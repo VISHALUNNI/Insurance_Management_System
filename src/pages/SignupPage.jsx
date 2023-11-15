@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import './signup.css';
 import supabase from "./config/SupabaseClient";
 
@@ -8,6 +8,7 @@ const SignupPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const Navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -22,24 +23,37 @@ const SignupPage = () => {
       if (error) {
         setErrorMessage(error.message);
       } else {
-        // After successful signup, create a user profile
-        await createProfileInDatabase({ username,email, password });
+        // Sign in after successful signup
+        const { user: loginUser, error: loginError } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
 
-        // Provide user feedback or redirect to a new page
-        alert('Signup successful! Check your email for verification.');
+        if (loginError) {
+          console.error('Error signing in:', loginError.message);
+        } else {
+          // After successful signup and login, create a user profile
+          await createProfileInDatabase({ username, email, password });
+
+          // Navigate to the create profile page
+          Navigate('/create-profile');
+
+          // Provide user feedback or redirect to a new page
+          alert('Signup successful! Check your email for verification.');
+        }
       }
     } catch (error) {
       console.error('Error signing up:', error.message);
     }
   };
 
-  const createProfileInDatabase = async ({ username,email, password }) => {
+  const createProfileInDatabase = async ({ username, email, password }) => {
     // Your logic to create a user profile in the database
     // For example, you can use supabase
     const { data, error } = await supabase
       .from('users')
       .insert([
-        { username,email, password },
+        { username, email, password },
       ])
       .select();
 
@@ -55,7 +69,7 @@ const SignupPage = () => {
       <h2 className='signup-title'>Sign Up</h2>
       <form onSubmit={handleSignup} className='signup-form'>
         <div className="input-container">
-        <input
+          <input
             type="text"
             placeholder="Username"
             value={username}
