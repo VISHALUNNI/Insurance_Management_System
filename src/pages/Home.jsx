@@ -1,11 +1,14 @@
 import React from "react";
 import './Home.css'
+import supabase from "./config/SupabaseClient";
  
 function Home() {
+console.log(supabase)
   return (
     <div className="HomePage">
       <div className="AboutUs">
         <h1>About Us</h1>
+        
         <p>At [Your Company Name], we are redefining the insurance management landscape, one policy at a time. As a forward-thinking startup in the world of insurance, we bring innovation, expertise, and a commitment to customer satisfaction to the forefront of our operations.</p>
       </div>
       <div className="OurMission">
