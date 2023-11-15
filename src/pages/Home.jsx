@@ -4,6 +4,7 @@ import supabase from "./config/SupabaseClient";
  
 function Home() {
 console.log(supabase)
+console.log("hello")
   return (
     <div className="HomePage">
       <div className="AboutUs">
