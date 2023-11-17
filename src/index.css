@@ -1,3 +1,5 @@
 html{
-    background-color: #212639;
+    height: 100vh;
+    background-image: linear-gradient(white,rgb(42,42,78));
+    background-repeat: no-repeat;
 }
