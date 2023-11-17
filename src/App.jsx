@@ -13,6 +13,7 @@ import SignupPage from "./pages/SignupPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import CreateProfilePage from "./pages/CreateProfilePage";
 import Dashboard from "./pages/DashBoard";
+import ResetPasswordPage from "./pages/ResetPassword";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/vehicle-insurance" element={<VehicleInsurancePage/>}/>
         <Route path="/create-profile" element ={<CreateProfilePage/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/> 
+        <Route path="/reset-password" element={<ResetPasswordPage/>}/>
       </Routes>
     </BrowserRouter>
   );

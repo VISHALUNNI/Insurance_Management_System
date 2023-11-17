@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import supabase from "./config/SupabaseClient";
+import './CreateProfilePage.css'
 
 const CreateProfilePage = () => {
    const navigate = useNavigate();
@@ -54,9 +55,9 @@ const CreateProfilePage = () => {
 
 
   return (
-    <div>
-      <h2>Create Your Profile</h2>
-      <form onSubmit={handleCreateProfile}>
+    <div className='create-profile-container'>
+      <h2 className='create-profile-title'>Create Your Profile</h2>
+      <form onSubmit={handleCreateProfile} className='create-profile-form'>
         <div>
           <label htmlFor="firstName">First Name:</label>
           <input
@@ -120,7 +121,7 @@ const CreateProfilePage = () => {
           />
         </div>
         <button type="submit">Create Profile</button>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {error && <p className='error-message'style={{ color: 'red' }}>{error}</p>}
       </form>
     </div>
   );
