@@ -23,7 +23,6 @@ const SignupPage = () => {
       if (error) {
         setErrorMessage(error.message);
       } else {
-        // Sign in after successful signup
         const { user: loginUser, error: loginError } = await supabase.auth.signInWithPassword({
           email,
           password,
@@ -32,10 +31,8 @@ const SignupPage = () => {
         if (loginError) {
           console.error('Error signing in:', loginError.message);
         } else {
-          // After successful signup and login, create a user profile
+          
           await createProfileInDatabase({ username, email, password });
-
-          // Navigate to the create profile page
           Navigate('/create-profile');
 
           // Provide user feedback or redirect to a new page
