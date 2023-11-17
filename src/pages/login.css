@@ -1,7 +1,5 @@
-
-
 .login-container {
-max-width: 400px;
+  max-width: 400px;
   margin: 100px auto; /* Adjust the top margin to center vertically */
   padding: 20px;
   border: 1px solid #ccc;
@@ -13,7 +11,18 @@ max-width: 400px;
   align-items: center; /* Center horizontally */
   justify-content: center;
 }
+.img{
+  background-image: url(pggg.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 2px 11px 4px 12px rgba(0, 0, 0, 0.563);
+ width:1063px;
+ height: 507px;
+ padding: -18px;
+ border-radius:10px;
+ margin:-65px -14px -4px 0px;
 
+}
 .login-title {
   font-size: 24px;
   margin-bottom: 20px;
