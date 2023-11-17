@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import './signup.css';
-import supabase from "./config/SupabaseClient";
+import supabase from "../config/SupabaseClient";
 
 const SignupPage = () => {
   const [email, setEmail] = useState('');

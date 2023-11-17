@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import supabase from './config/SupabaseClient';
+import supabase from '../config/SupabaseClient';
 
 const Dashboard = () => {
   const [userPolicies, setUserPolicies] = useState([]);

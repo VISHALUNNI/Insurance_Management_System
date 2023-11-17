@@ -1,6 +1,6 @@
 import React from "react";
 import './Home.css'
-import supabase from "./config/SupabaseClient";
+import supabase from "../config/SupabaseClient";
  
 function Home() {
   return (

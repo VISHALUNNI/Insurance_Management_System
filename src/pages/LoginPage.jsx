@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link,useNavigate } from "react-router-dom";
-import supabase from "./config/SupabaseClient";
+import supabase from "../config/SupabaseClient";
 import './login.css';
 import { motion } from 'framer-motion'
 

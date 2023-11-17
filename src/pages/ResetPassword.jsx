@@ -1,7 +1,7 @@
 // ResetPasswordPage.jsx
 import React, { useState } from 'react';
 import { useParams , useNavigate } from 'react-router-dom';
-import supabase from './config/SupabaseClient';
+import supabase from '../config/SupabaseClient';
 import './ResetPassword.css';
 
 const ResetPasswordPage = () => {

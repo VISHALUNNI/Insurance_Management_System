@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import './ForgotPassword.css'; // Import the CSS file
-import supabase from "./config/SupabaseClient";
+import supabase from "../../config/SupabaseClient";
 
 const ForgotPasswordPage = () => {
   const navigate=useNavigate();

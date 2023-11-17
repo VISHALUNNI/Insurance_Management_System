@@ -10,8 +10,8 @@ import HealthInsurancePage from "./pages/HealthInsurancePage";
 import VehicleInsurancePage from "./pages/VehicleInsurancePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
-import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-import CreateProfilePage from "./pages/CreateProfilePage";
+import ForgotPasswordPage from "./pages/ForgotPassword/ForgotPasswordPage";
+import CreateProfilePage from "./pages/CreateProfile/CreateProfilePage";
 import Dashboard from "./pages/DashBoard";
 import ResetPasswordPage from "./pages/ResetPassword";
 

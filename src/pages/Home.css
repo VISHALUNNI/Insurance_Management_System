@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
 .HomePage{
     font-family: 'Lora', serif;
-    background-color: #212639;
+    background-color: #ffffff;
     width:100%;
     height: 768px;
 
 }
 .AboutUs{
-    background-image: linear-gradient(to bottom right,white,rgb(42, 42, 78));
+    background-image: linear-gradient(to bottom right,white,rgb(103, 103, 130));
     border-radius: 31px;
     padding: 3px 15px;
    margin: 20px 34px 20px 379px;
@@ -15,21 +15,21 @@
     }
     
 .OurMission{
-  background-image: linear-gradient(to bottom right,rgb(161, 161, 197),rgb(38, 57, 93));
+  background-image: linear-gradient(to bottom right,rgb(161, 161, 197),rgb(103, 103, 130));
   border-radius: 31px;
   padding: 3px 15px;
  margin: 9px 283px 0px 7px;
  text-indent: 40px;
 }
 .WhoWeAre{
-    background-image: linear-gradient(to bottom right,white,rgb(42, 42, 78));
+    background-image: linear-gradient(to bottom right,white,rgb(103, 103, 130));
     border-radius: 31px;
     padding: 3px 15px;
    margin: 20px 34px 20px 379px;
    text-indent: 40px;
 }
 .OurVision{
-    background-image: linear-gradient(to bottom right,rgb(161, 161, 197),rgb(38, 57, 93));
+    background-image: linear-gradient(to bottom right,rgb(161, 161, 197),rgb(103, 103, 103));
     border-radius: 31px;
     padding: 3px 15px;
    margin: 9px 283px 0px 7px;
