@@ -1,22 +1,13 @@
 
 .claims-page {
-  background-image: url(poll.jpg);
-  background-repeat: no-repeat;
-  background-size:cover ;
     max-width: 600px;
-    margin: 49px auto;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #dbdbdb6a;
+    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    align-items: center;
-   
   }
-  .imag{
-    background-image: url(deposit.jpg);
-    background-repeat: no-repeat;
-    background-size:cover ;
-  }
+  
 
   .claims-page h1 {
     font-size: 1.5rem;
@@ -44,7 +35,6 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin: 0px -11px auto;
   }
   
 
@@ -55,18 +45,10 @@
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
-    width: 180px;
-    margin-inline: 180px;
-    border-radius: 5px;
   }
   
  
   .claims-page button:hover {
     background-color: #555;
   }
-  .imag{
-    background-color: #333;
-    background-image: url(deposit.jpg);
-    background-repeat: no-repeat;
-    background-size:cover ;
-  }
+  
