@@ -2,7 +2,7 @@ import { HashRouter as BrowserRouter, Routes, Route, Link } from "react-router-d
 import { useState, useEffect } from "react";
 // pages
 import Home from "./pages/Home"
-import supabase from "./pages/config/SupabaseClient";
+import supabase from "./config/SupabaseClient";
 import './app.css'
 import PolicyPage from './pages/PolicyPage';
 import ClaimsPage from "./pages/ClaimsPage";
