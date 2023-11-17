@@ -3,6 +3,7 @@
 /* Login Container */
 .login-container {
     display: flex;
+    background-color: #213f79;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -11,19 +12,34 @@
   
   /* Form Container */
   .login-form {
-    width: 350px;
-    padding: 20px;
-    border: 1px solid #ccc;
+    width: 364px;
+    height: 381px;
+    padding: 61px;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
-    background-color: #fff;
+    background-color: #d2d2d273;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    margin:-66px 0px -121px 574px;
+    
   }
+  .img{
+    background-image: url(pggg.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 2px 11px 4px 12px rgba(0, 0, 0, 0.563);
+   width:1063px;
+   height: 507px;
+   padding: -18px;
+   border-radius:10px;
+   margin:-65px -14px -4px 0px;
+
+  } 
   
   /* Title */
   .login-title {
     text-align: center;
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-left: 577px;
   }
   
   /* Input Container */
@@ -48,13 +64,14 @@
   /* Login Button */
   .login-form button {
     background-color: #007bff;
-    color: #fff;
+    color: #ffffff;
     border: none;
-    border-radius: 3px;
-    padding: 10px 15px;
+    border-radius: 37px;
+    padding: 12px 0px;
     cursor: pointer;
-    width: 100%;
-    margin-top: 20px;
+    width: 80%;
+    margin: 128px 36px;
+    box-shadow:0px 12px 20px 6px rgba(15, 15, 15, 0.668)
   }
   
   .login-form button:hover {
@@ -65,7 +82,7 @@
   .login-signup-link {
     display: block;
     text-align: center;
-    margin-top: 10px;
+    margin: 0px -572px 9px -13px;
     text-decoration: none;
     color: #007bff;
   }
@@ -78,9 +95,9 @@
   .forgot-password-link {
     display: block;
     text-align: center;
-    margin-top: 10px;
+    margin: 16px 0px 0px 570px;
     text-decoration: none;
-    color: #007bff;
+    color: #007bff0f;
   }
   
   .forgot-password-link:hover {
@@ -92,4 +109,3 @@
     color: red;
     margin-top: 10px;
   }
-  

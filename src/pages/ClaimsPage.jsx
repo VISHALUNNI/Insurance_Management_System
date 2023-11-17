@@ -17,6 +17,7 @@ const ClaimsPage = () => {
 
   return (
     <div className='claims-page'>
+      <div className='imag'></div>
       <h1>File a Claim</h1>
       <form onSubmit={handleClaimSubmission}>
         <div className="form-group">

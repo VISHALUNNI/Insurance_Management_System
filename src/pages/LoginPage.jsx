@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './login.css'
+import {motion} from 'framer-motion';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -20,9 +21,15 @@ const LoginPage = () => {
 
   return (
     <div className='login-container'>
+     <div className='img'>
       <h2 className='login-title'>Login</h2>
       <form onSubmit={handleLogin} className='login-form'>
-        <div className="input-container">
+      
+        <motion.div className="input-container"
+         initial={{opacity:0}}
+         animate={{opacity:1}}
+         transition={{delay:0.5}}
+        >
           <input
             type="email"
             placeholder="Email"
@@ -30,8 +37,12 @@ const LoginPage = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </div>
-        <div className="input-container">
+        </motion.div>
+        <motion.div className="input-container"
+         initial={{opacity:0}}
+         animate={{opacity:1}}
+         transition={{delay:0.5}}
+        >
           <input
             type="password"
             placeholder="Password"
@@ -39,7 +50,7 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
+        </motion.div>
         <button type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
@@ -49,6 +60,7 @@ const LoginPage = () => {
       <p className='forgot-password-link'>  
         <Link to="/forgot-password">Forgot Password?</Link>
       </p>
+    </div>
     </div>
   );
 };

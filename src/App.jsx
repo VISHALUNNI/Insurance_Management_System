@@ -12,7 +12,6 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +30,7 @@ function App() {
         <Route path="/policies" element={<PolicyPage/>} />
         <Route path="/health-insurance" element={<HealthInsurancePage/>}/>
         <Route path="/vehicle-insurance" element={<VehicleInsurancePage/>}/>
+       
       </Routes>
     </BrowserRouter>
   );
