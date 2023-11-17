@@ -1,9 +1,13 @@
 import React from 'react';
+import './HealthInsurace.css'
 
 const HealthInsurancePage = () => {
   return (
     <div>
-       <div className="ht"></div>
+       <div className="ht">
+        <img src='./poll.jpg' alt='poll'/>
+       </div>
+       <div>
       <h1>Health Insurance</h1>
       <p>
         Health insurance is a vital form of coverage that helps protect your
@@ -74,6 +78,7 @@ const HealthInsurancePage = () => {
         premiums, deductibles, copayments, and the network of healthcare
         providers.
       </p>
+      </div>
     </div>
   );
 };

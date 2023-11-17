@@ -11,7 +11,7 @@
     text-decoration: none;
     color: white;
     font-weight: bold;
-    margin: 0 20px;
+    /* margin: 0 20px; */
     padding: 5px 0;
     transition: border-bottom 0.2s ease-in;
   }

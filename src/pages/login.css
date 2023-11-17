@@ -77,22 +77,10 @@
   .login-form button:hover {
     background-color: #0056b3;
   }
-  
-  /* Sign Up Link */
-  .login-signup-link {
-    display: block;
-    text-align: center;
-    margin: 0px -572px 9px -13px;
-    text-decoration: none;
-    color: #007bff;
-  }
-  
-  .login-signup-link:hover {
-    text-decoration: underline;
-  }
+
   
   /* Forgot Password Link */
-  .forgot-password-link {
+  .login-nav-links {
     display: block;
     text-align: center;
     margin: 16px 0px 0px 570px;
