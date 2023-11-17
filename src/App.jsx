@@ -11,15 +11,19 @@ import VehicleInsurancePage from "./pages/VehicleInsurancePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import CreateProfilePage from "./pages/CreateProfilePage";
+import Dashboard from "./pages/DashBoard";
+import ResetPasswordPage from "./pages/ResetPassword";
+
 
 function App() {
   return (
     <BrowserRouter>
       <nav className="navbar">
-      <Link to="/">Home</Link>
-      <Link to="/claims">Manage Claims</Link>
-      <Link to="/policies">Manage Policies</Link>
-      <Link to="/login">Login / Sign Up</Link>
+        <Link to="/">Home</Link>
+        <Link to="/claims">Manage Claims</Link>
+        <Link to="/policies">Manage Policies</Link>
+        <Link to="/login">Login / Sign Up</Link>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,7 +34,9 @@ function App() {
         <Route path="/policies" element={<PolicyPage/>} />
         <Route path="/health-insurance" element={<HealthInsurancePage/>}/>
         <Route path="/vehicle-insurance" element={<VehicleInsurancePage/>}/>
-       
+        <Route path="/create-profile" element ={<CreateProfilePage/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/> 
+        <Route path="/reset-password" element={<ResetPasswordPage/>}/>
       </Routes>
     </BrowserRouter>
   );

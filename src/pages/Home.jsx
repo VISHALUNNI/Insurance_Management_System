@@ -1,17 +1,14 @@
 import React from "react";
 import './Home.css'
-import {motion} from 'framer-motion';
+import supabase from "./config/SupabaseClient";
  
 function Home() {
   return (
-   <div className="HomePage">
-    
+    <div className="HomePage">
       <div className="AboutUs">
         <h1>About Us</h1>
-       
-        <p>
-        At [Your Company Name], we are redefining the insurance management landscape, one policy at a time.As a forward-thinking startup in  the world of insurance, we bring innovation, expertise, and a commitment to customer satisfaction to the forefront of our operations.
-         </p>
+        
+        <p>At [Your Company Name], we are redefining the insurance management landscape, one policy at a time. As a forward-thinking startup in the world of insurance, we bring innovation, expertise, and a commitment to customer satisfaction to the forefront of our operations.</p>
       </div>
       <div className="OurMission">
         <h1>Our Mission:</h1>
@@ -27,7 +24,6 @@ function Home() {
 
 Thank you for considering [Your Company Name] as your insurance partner. We look forward to serving you and helping you secure the future you deserve. Together, we can build a safer and more secure tomorrow.</p>
       </div>
-      
     </div>
   )
 }

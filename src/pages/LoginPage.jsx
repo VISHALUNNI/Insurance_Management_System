@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './login.css'
-import {motion} from 'framer-motion';
+import { Link,useNavigate } from "react-router-dom";
+import supabase from "./config/SupabaseClient";
+import './login.css';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Add your authentication logic here (e.g., checking credentials)
-    if (email === 'user@example.com' && password === 'password123') {
-      // Redirect to the user's dashboard or another page on successful login
-      // Instead of using useHistory, you can use a link to navigate.
-    } else {
+
+    try {
+      // Sign in using Supabase Auth
+      const { user, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      // Redirect to the user's dashboard on successful login
+      navigate("/dashboard")
+    } catch (error) {
       setErrorMessage('Invalid email or password');
+      console.error('Error signing in:', error.message);
     }
   };
 
@@ -54,10 +66,10 @@ const LoginPage = () => {
         <button type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <p className='login-signup-link'>
+      <p className='login-nav-links'>
         New user? <Link to="/signup">Sign up here</Link>
       </p>
-      <p className='forgot-password-link'>  
+      <p className='login-nav-links'>  
         <Link to="/forgot-password">Forgot Password?</Link>
       </p>
     </div>

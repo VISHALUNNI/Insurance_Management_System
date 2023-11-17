@@ -1,23 +1,48 @@
+// Import necessary libraries
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import './login.css'
+import './ForgotPassword.css'; // Import the CSS file
+import supabase from "./config/SupabaseClient";
 
 const ForgotPasswordPage = () => {
+  const navigate=useNavigate();
   const [email, setEmail] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleForgotPassword = (e) => {
+  const handleForgotPassword = async (e) => {
     e.preventDefault();
-    // Add forgot password logic here (e.g., sending a reset link to the user's email)
-    console.log('Forgot password for email:', email);
+  
+    try {
+    
+      const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: 'https://imsappp.vercel.app/#/reset-password', 
+      });
+  
+      if (error) {
+        throw error;
+      }
+
+      setSuccessMessage('Password reset email sent. Check your inbox.');
+      setErrorMessage('');
+  
+      
+      navigate(`/login`); 
+    } catch (error) {
+      console.log(error);
+      setErrorMessage('Error sending reset password email. Please try again.');
+      setSuccessMessage('');
+    }
   };
+  
 
   return (
-    <div className='login-container'>
-      <h2 className='login-title'>Forgot Password</h2>
-      <form onSubmit={handleForgotPassword} className='login-form'>
-        <div className="input-container">
+    <div className='forgot-password-container'>
+      <h2 className='forgot-password-title'>Forgot Password</h2>
+      <form onSubmit={handleForgotPassword} className='forgot-password-form'>
+        <div className="forgot-password-input-container">
           <FontAwesomeIcon icon={faEnvelope} />
           <input
             type="email"
@@ -29,10 +54,12 @@ const ForgotPasswordPage = () => {
         </div>
         <button type="submit">Reset Password</button>
       </form>
-      <div className="nav-links">
-      <p>
-        Remember your password? <Link to="/login">Login</Link>
-      </p>
+      {successMessage && <p className="success-message">{successMessage}</p>}
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <div className="forgot-password-nav-links">
+        <p>
+          Remember your password? <Link to="/login">Login</Link>
+        </p>
       </div>
     </div>
   );

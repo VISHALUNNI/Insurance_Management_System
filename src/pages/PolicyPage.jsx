@@ -18,6 +18,7 @@ const policies = [
 const PolicyCard = ({ title, description,path }) => {
   return (
     <div className="policy-card">
+      
       <h2><Link to={path}>{title}</Link></h2>
       <p>{description}</p>
     </div>
