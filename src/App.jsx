@@ -1,8 +1,8 @@
 import { HashRouter as BrowserRouter, Routes, Route, Link } from "react-router-dom"
-
+import { useState, useEffect } from "react";
 // pages
 import Home from "./pages/Home"
-//iiimport AuthPage from "./pages/AuthPage";
+import supabase from "./pages/config/SupabaseClient";
 import './app.css'
 import PolicyPage from './pages/PolicyPage';
 import ClaimsPage from "./pages/ClaimsPage";
@@ -15,15 +15,52 @@ import CreateProfilePage from "./pages/CreateProfile/CreateProfilePage";
 import Dashboard from "./pages/DashBoard";
 import ResetPasswordPage from "./pages/ResetPassword";
 
+function NavbarAuthenticated() {
+  return (
+    <>
+      <Link to="/">Home</Link>
+      <Link to="/claims">Manage Claims</Link>
+      <Link to="/policies">Manage Policies</Link>
+      <Link to="/health-insurance">Purchase Health Insurance</Link>
+      <Link to="/vehicle-insurance">Purchase Vehicle Insurance</Link>
+      <Link to="/dashboard">Dashboard</Link>
+    </>
+  );
+}
+
+function NavbarDefault() {
+  return (
+    <>
+      <Link to="/">Home</Link>
+      <Link to="/claims">Manage Claims</Link>
+      <Link to="/policies">Manage Policies</Link>
+      <Link to="/login">Login / Sign Up</Link>
+    </>
+  );
+}
 
 function App() {
+  
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        
+    const { data: { user } } = await supabase.auth.getUser()
+        setUser(user);
+      } catch (error) {
+        console.error('Error fetching user:', error.message);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   return (
     <BrowserRouter>
       <nav className="navbar">
-        <Link to="/">Home</Link>
-        <Link to="/claims">Manage Claims</Link>
-        <Link to="/policies">Manage Policies</Link>
-        <Link to="/login">Login / Sign Up</Link>
+      {user ? <NavbarAuthenticated /> : <NavbarDefault />}
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
