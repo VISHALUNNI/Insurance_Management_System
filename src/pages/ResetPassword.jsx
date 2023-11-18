@@ -1,39 +1,46 @@
 // ResetPasswordPage.jsx
 import React, { useState } from 'react';
-import { useParams , useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import supabase from '../config/SupabaseClient';
 import './ResetPassword.css';
 
 const ResetPasswordPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { token } = useParams(); // Get the reset token from the URL params
   const [newPassword, setNewPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const { token } = useParams(); // Get the reset token from the URL params
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
 
     try {
-        const { data:{authResult}, error } = await supabase.auth.updateUser({
-            password: newPassword
-        });
-        const { data, error } = await supabase
-        .from('users')
-        .update({ password: newPassword })
-        .eq('id', authResult.data.id);
-        
+      // Use the reset token to update the user's password
+      const { data, error } = await supabase.auth.api.updateUser(token, {
+        password: newPassword,
+      });
 
       if (error) {
         throw error;
       }
 
-      // Display success message
+      // Update the user table with the new password
+      const { data: userData, error: userError } = await supabase
+        .from('users')
+        .update({ password: newPassword })
+        .eq('id', data.id);
+
+      if (userError) {
+        throw userError;
+      }
+
+      // Display success message and navigate to login page
       setSuccessMessage('Password reset successfully!');
       setErrorMessage('');
-      navigate('/login')
+      navigate('/login');
     } catch (error) {
       console.error('Error resetting password:', error.message);
+      // Display error message if there's an issue with resetting the password
       setErrorMessage('Error resetting password. Please try again.');
       setSuccessMessage('');
     }

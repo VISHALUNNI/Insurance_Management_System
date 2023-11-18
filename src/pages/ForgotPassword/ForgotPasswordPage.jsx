@@ -7,35 +7,35 @@ import './ForgotPassword.css'; // Import the CSS file
 import supabase from "../../config/SupabaseClient";
 
 const ForgotPasswordPage = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
-  
+
     try {
-        const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-  redirectTo: 'https://imsappp.vercel.app/#/reset-password',
-});
-  
+      // Send a reset password email using Supabase Auth
+      const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: 'https://imsappp.vercel.app/#/reset-password',
+      });
+
       if (error) {
         throw error;
       }
 
+      // Display success message and navigate to login page
       setSuccessMessage('Password reset email sent. Check your inbox.');
       setErrorMessage('');
-  
-      
-      navigate(`/login`); 
+      navigate('/login');
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      // Display error message if there's an issue with sending the reset email
       setErrorMessage('Error sending reset password email. Please try again.');
       setSuccessMessage('');
     }
   };
-  
 
   return (
     <div className='forgot-password-container'>
