@@ -18,7 +18,8 @@ const policies = [
 const PolicyCard = ({ title, description,path }) => {
   return (
     <div className="policy-card">
-      
+      <div className='health'></div>
+      <div className='vehi'></div>
       <h2><Link to={path}>{title}</Link></h2>
       <p>{description}</p>
     </div>
@@ -28,14 +29,20 @@ const PolicyCard = ({ title, description,path }) => {
 const PolicyPage = () => {
   return (
     <div>
-      <h1>Insurance Policies</h1>
+    <div className='head'>
+    <h1>Insurance Policies</h1>
+    
+   
       <div className="policy-cards-container">
         {policies.map((policy, index) => (
           <PolicyCard key={index} title={policy.title} description={policy.description} path={policy.path} />
+        
         ))}
+      </div>
       </div>
     </div>
   );
 };
+
 
 export default PolicyPage;

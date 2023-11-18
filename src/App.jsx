@@ -51,7 +51,6 @@ function NavbarAuthenticated() {
       <Link to="/health-insurance">Purchase Health Insurance</Link>
       <Link to="/vehicle-insurance">Purchase Vehicle Insurance</Link>
       <Link to="/dashboard">Dashboard</Link>
-<<<<<<< HEAD
       <div className="navbar-profile">
       <div className="profile-icon" onClick={toggleDropdown}>
         {/* You can use an icon here, e.g., user icon */}
@@ -64,9 +63,7 @@ function NavbarAuthenticated() {
         </div>
       )}
     </div>
-=======
       </div>
->>>>>>> 24cf965a1b18f0ba0bbba7c1d1751c31ac0f5112
     </>
   );
 }

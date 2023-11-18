@@ -3,7 +3,7 @@
 /* Login Container */
 .login-container {
     display: flex;
-    background-color: #003b79;
+    background-image:linear-gradient( #003b79,black);
     justify-content: center;
     align-items: center;
     height: 100vh;
