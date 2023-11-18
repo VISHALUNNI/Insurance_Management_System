@@ -15,7 +15,7 @@ const ResetPasswordPage = () => {
     e.preventDefault();
 
     try {
-        const { data, error } = await supabase.auth.updateUser({
+        const { data:{authResult}, error } = await supabase.auth.updateUser({
             password: newPassword
         });
         const { data1, error1 } = await supabase
