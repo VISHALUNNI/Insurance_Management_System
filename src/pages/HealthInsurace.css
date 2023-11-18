@@ -1,7 +1,10 @@
 h1,p,ul,li{
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .ht{
-    background-image: url(poll.jpg);
+    background-image: url(deposit.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    height: 20vw;
 }

@@ -1,11 +1,11 @@
 import React from 'react';
-import './HealthInsurace.css'
+import './HealthInsurace.css';
+import './LifeInsurance_Coverage_.webp';
 
 const HealthInsurancePage = () => {
   return (
     <div>
        <div className="ht">
-        <img src='./poll.jpg' alt='poll'/>
        </div>
        <div>
       <h1>Health Insurance</h1>
