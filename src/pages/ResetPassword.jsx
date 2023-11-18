@@ -18,10 +18,10 @@ const ResetPasswordPage = () => {
         const { data:{authResult}, error } = await supabase.auth.updateUser({
             password: newPassword
         });
-        const { data1, error1 } = await supabase
+        const { data, error } = await supabase
         .from('users')
         .update({ password: newPassword })
-        .eq('id', authResult.data1.id);
+        .eq('id', authResult.data.id);
         
 
       if (error) {
