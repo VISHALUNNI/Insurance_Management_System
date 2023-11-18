@@ -1,5 +1,5 @@
-import { HashRouter as BrowserRouter, Routes, Route, Link } from "react-router-dom"
-import { useState, useEffect } from "react";
+import { HashRouter as BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom"
+import { useState, useEffect, } from "react";
 // pages
 import Home from "./pages/Home"
 import supabase from "./config/SupabaseClient";
@@ -16,6 +16,26 @@ import Dashboard from "./pages/DashBoard";
 import ResetPasswordPage from "./pages/ResetPassword";
 
 function NavbarAuthenticated() {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const navigate = useNavigate();
+  const handleUpdateProfile = () => {
+    // Redirect to the profile update page
+    setShowDropdown(false);
+    navigate('/profile-update');
+  };
+
+  const handleLogout = async () => {
+    // Logout user using Supabase
+    const { error } = await supabase.auth.signOut()
+    setShowDropdown(false);
+    navigate('/');
+  };
+    
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   return (
     <>
       <Link to="/">Home</Link>
@@ -24,6 +44,18 @@ function NavbarAuthenticated() {
       <Link to="/health-insurance">Purchase Health Insurance</Link>
       <Link to="/vehicle-insurance">Purchase Vehicle Insurance</Link>
       <Link to="/dashboard">Dashboard</Link>
+      <div className="navbar-profile">
+      <div className="profile-icon" onClick={toggleDropdown}>
+        {/* You can use an icon here, e.g., user icon */}
+        🧑
+      </div>
+      {showDropdown && (
+        <div className="profile-dropdown">
+          <button onClick={handleUpdateProfile}>Update Profile</button>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      )}
+    </div>
     </>
   );
 }
@@ -40,31 +72,37 @@ function NavbarDefault() {
 }
 
 function App() {
-  
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        
-    const { data: { user } } = await supabase.auth.getUser()
-        setUser(user);
+        const { data } = await supabase.auth.getUser();
+        setUser(data.user);
       } catch (error) {
         console.error('Error fetching user:', error.message);
       }
     };
 
     fetchUser();
-  }, []);
+  }, [user]);
 
+  const handleLogin = (loggedInUser) => {
+    setUser(loggedInUser);
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+  };
   return (
+    
     <BrowserRouter>
       <nav className="navbar">
       {user ? <NavbarAuthenticated /> : <NavbarDefault />}
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/login" element={<LoginPage onLogin={handleLogin}/>}/>
         <Route path="/signup" element={<SignupPage/>}/>
         <Route path="/forgot-password" element={<ForgotPasswordPage/>}/>
         <Route path="/claims" element={<ClaimsPage/>}/>

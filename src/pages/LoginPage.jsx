@@ -3,8 +3,9 @@ import { Link,useNavigate } from "react-router-dom";
 import supabase from "../config/SupabaseClient";
 import './login.css';
 import { motion } from 'framer-motion'
+import PropTypes from 'prop-types';
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,7 +25,7 @@ const LoginPage = () => {
         throw error;
       }
 
-      // Redirect to the user's dashboard on successful login
+      onLogin(user);
       navigate("/dashboard")
     } catch (error) {
       setErrorMessage('Invalid email or password');
@@ -77,5 +78,7 @@ const LoginPage = () => {
     </div>
   );
 };
-
+LoginPage.propTypes = {
+  onLogin: PropTypes.func.isRequired, // Ensure onLogin is a required function prop
+};
 export default LoginPage;
