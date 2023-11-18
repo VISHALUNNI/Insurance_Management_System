@@ -16,7 +16,7 @@ const ResetPasswordPage = () => {
 
     try {
       // Use the reset token to update the user's password
-      const { data, error } = await supabase.auth.api.updateUser(token, {
+      const { data, error } = await supabase.auth.updateUser({
         password: newPassword,
       });
 

@@ -16,9 +16,9 @@ const ForgotPasswordPage = () => {
     e.preventDefault();
 
     try {
-      // Send a reset password email using Supabase Auth
-      const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'https://imsappp.vercel.app/#/reset-password',
+      // Send reset password email
+      const { data, error } = await supabase.auth.api.resetPasswordForEmail(email, {
+        redirectTo: 'https://imsappp.vercel.app/#/reset-password', // Replace with your actual reset password page
       });
 
       if (error) {
@@ -28,10 +28,10 @@ const ForgotPasswordPage = () => {
       // Display success message and navigate to login page
       setSuccessMessage('Password reset email sent. Check your inbox.');
       setErrorMessage('');
-      navigate('/login');
+      navigate(`/login`);
     } catch (error) {
       console.error(error);
-      // Display error message if there's an issue with sending the reset email
+      // Display error message if there's an issue with sending the reset password email
       setErrorMessage('Error sending reset password email. Please try again.');
       setSuccessMessage('');
     }
