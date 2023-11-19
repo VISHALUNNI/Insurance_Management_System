@@ -1,55 +1,82 @@
 // ResetPasswordPage.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import supabase from '../config/SupabaseClient';
 import './ResetPassword.css';
 
 const ResetPasswordPage = () => {
   const navigate = useNavigate();
-  const { token } = useParams(); // Get the reset token from the URL params
+  const { token } = useParams();
+  const [hash, setHash] = useState(null);
   const [newPassword, setNewPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
 
-  const handleResetPassword = async (e) => {
+  useEffect(() => {
+    setHash(window.location.hash);
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Use the reset token to update the user's password
-      const { data, error } = await supabase.auth.updateUser({
+      // If the user doesn't have an access token
+      if (!hash) {
+        console.error('Sorry, Invalid token');
+        return;
+      }
+
+      const hashArr = hash
+        .substring(1)
+        .split('&')
+        .map((param) => param.split('='));
+      console.log(hashArr)
+      let type;
+      let accessToken;
+      for (const [key, value] of hashArr) {
+        if (key === 'type') {
+          type = value;
+        } else if (key === 'access_token') {
+          accessToken = value;
+        }
+      }
+
+      if (type !== 'recovery' || !accessToken || typeof accessToken === 'object') {
+        console.error('Invalid access token or type');
+        return;
+      }
+
+      // Change the password using supabase.auth.updateUser
+      const { user, error: passwordUpdateError } = await supabase.auth.updateUser({
         password: newPassword,
       });
 
-      if (error) {
-        throw error;
+      if (passwordUpdateError) {
+        throw passwordUpdateError;
       }
-
-      // Update the user table with the new password
-      const { data: userData, error: userError } = await supabase
+      const { data } = await supabase.auth.getUser()
+      const user1 = data.user
+      console.log(user1)
+      const { error: updateError } = await supabase
         .from('users')
         .update({ password: newPassword })
-        .eq('id', data.id);
+        .eq('id', user1.id);
 
-      if (userError) {
-        throw userError;
+      if (updateError) {
+        throw updateError;
       }
 
-      // Display success message and navigate to login page
-      setSuccessMessage('Password reset successfully!');
-      setErrorMessage('');
+      console.log('Password Changed successfully');
+
+      // Navigate to the login page after successful password change
       navigate('/login');
     } catch (error) {
-      console.error('Error resetting password:', error.message);
-      // Display error message if there's an issue with resetting the password
-      setErrorMessage('Error resetting password. Please try again.');
-      setSuccessMessage('');
+      console.error('Sorry, an error occurred:', error.message);
     }
   };
 
   return (
     <div className='reset-password-container'>
       <h2 className='reset-password-title'>Reset Password</h2>
-      <form onSubmit={handleResetPassword} className='reset-password-form'>
+      <form onSubmit={(e) => handleSubmit(e)} className='reset-password-form'>
         <div className='reset-password-input-container'>
           <input
             type='password'
@@ -59,10 +86,8 @@ const ResetPasswordPage = () => {
             required
           />
         </div>
-        <button type='submit'>Reset Password</button>
+        <button>Reset Password</button>
       </form>
-      {successMessage && <p className='success-message'>{successMessage}</p>}
-      {errorMessage && <p className='error-message'>{errorMessage}</p>}
     </div>
   );
 };

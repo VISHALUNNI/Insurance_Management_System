@@ -31,8 +31,11 @@ const SignupPage = () => {
         if (loginError) {
           console.error('Error signing in:', loginError.message);
         } else {
-          
+          // After signing up and signing in, you can perform additional actions
+          // For example, create a user profile in the database
           await createProfileInDatabase({ username, email, password });
+
+          // Navigate to the desired page or perform other actions
           Navigate('/create-profile');
 
           // Provide user feedback or redirect to a new page
@@ -45,19 +48,42 @@ const SignupPage = () => {
   };
 
   const createProfileInDatabase = async ({ username, email, password }) => {
-    // Your logic to create a user profile in the database
-    // For example, you can use supabase
-    const { data, error } = await supabase
-      .from('users')
-      .insert([
-        { username, email, password },
-      ])
-      .select();
+    try {
+      const { data:{user}, error1 } = await supabase.auth.getUser();
 
-    if (error) {
+      if (!user || error1) {
+        console.error('Error getting user information:', error1 ? error1.message : 'No authenticated user');
+        // Handle the error, e.g., redirect to login page or show an error message
+        return;
+      }
+
+      console.log(user)
+
+      if (!user) {
+        console.error('User not authenticated');
+        // Handle the case where the user is not authenticated
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from('users')
+        .insert([
+          {
+            id: user.id,
+            username,
+            email,
+            password,
+          },
+        ])
+        .select();
+
+      if (error) {
+        console.error('Error creating user profile:', error.message);
+      } else {
+        console.log('User profile created successfully:', data);
+      }
+    } catch (error) {
       console.error('Error creating user profile:', error.message);
-    } else {
-      console.log('User profile created successfully:', data);
     }
   };
 
