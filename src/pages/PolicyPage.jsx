@@ -1,14 +1,18 @@
 import React from 'react';
 import './PolicyPage.css'
 import { Link } from 'react-router-dom';
+import './36.png';
+import './7767108.webp';
 
 const policies = [
   {
+    
     title: 'Health Insurance',
     description: 'Health insurance policies offer coverage for medical expenses, including doctor visits, hospital stays, and prescription drugs.',
     path: '/health-insurance'
   },
   {
+    
     title: 'Vehicle Insurance',
     description: 'Vehicle insurance policies provide coverage for your cars, motorcycles, and other vehicles in case of accidents, theft, or damage.',
     path: '/vehicle-insurance'

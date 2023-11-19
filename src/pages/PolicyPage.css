@@ -1,5 +1,5 @@
 .head{
-  background-image:linear-gradient(rgb(185, 221, 255),rgb(107, 187, 249));
+  background-image:linear-gradient(#ffffffbf,#0f2862a6);
   background-size: contain;
   background-position: 100%;
   height: 100vh; 
@@ -37,7 +37,7 @@
   .policy-card p {
     font-size: 1rem;
   }
-.health{
+/*.health{
   background-image: url('36.png'); 
   background-repeat: no-repeat;
   background-size: contain;
@@ -50,5 +50,5 @@
   background-size: contain;
   width: 10vw;
   height: 10vw;
-}
+}*/
 

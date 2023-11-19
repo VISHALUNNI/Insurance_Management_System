@@ -8,18 +8,19 @@
     align-items: center;
     height: 100vh;
     flex-direction: column;
+  
   }
   
   /* Form Container */
   .login-form {
-    width: 364px;
+    width: 365px;
     height: 381px;
     padding: 61px;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
     background-color: #d2d2d273;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    margin:-66px 0px -121px 574px;
+    margin:-54px 0px -121px 574px;
     
   }
   .img{
@@ -37,25 +38,26 @@
   
   /* Title */
   .login-title {
+    font-family: 'Lora' 'cursive';
+    text-transform: uppercase;
     text-align: center;
-    font-size: 24px;
-    margin-left: 577px;
+    font-size: 48px;
+    margin:0vw 49vw;
   }
   
   /* Input Container */
   .input-container {
-    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
   }
   
-  .input-container label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
+  
   
   .input-container input {
     width: 100%;
     padding: 10px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
     outline: none;
@@ -85,11 +87,11 @@
     text-align: center;
     margin: 16px 0px 0px 570px;
     text-decoration: none;
-    color: #007bff0f;
+    color: #007bff;
   }
   
   .forgot-password-link:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
   
   /* Error Message */

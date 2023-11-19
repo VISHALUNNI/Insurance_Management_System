@@ -3,8 +3,9 @@ h1,p,ul,li{
 }
 
 .ht{
-    background-image: url(deposit.jpg);
+    background-image: url(im.png);
     background-repeat: no-repeat;
     background-position: center top;
-    height: 20vw;
+    height: 30vw;
+
 }

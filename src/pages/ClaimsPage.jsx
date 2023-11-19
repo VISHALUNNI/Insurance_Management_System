@@ -16,8 +16,9 @@ const ClaimsPage = () => {
   };
 
   return (
+    <div>
+    
     <div className='claims-page'>
-      <div className='imag'></div>
       <h1>File a Claim</h1>
       <form onSubmit={handleClaimSubmission}>
         <div className="form-group">
@@ -43,6 +44,8 @@ const ClaimsPage = () => {
         </div>
         <button type="submit">Submit Claim</button>
       </form>
+    </div>
+    <div className='imag'></div>
     </div>
   );
 };

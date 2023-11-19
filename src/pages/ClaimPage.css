@@ -1,14 +1,21 @@
 
 .claims-page {
     max-width: 600px;
-    margin: 50px 400px;
+    margin: 4vw 0vw 0vw 28vw;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgb(250, 251, 252);
     box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
   
-
+.imag{
+  background-image: url(ver.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width:26vw;
+  height: 18vw;
+  margin: -3vw 72vw;
+}
   .claims-page h1 {
     font-size: 1.5rem;
     margin-bottom: 20px;
@@ -41,7 +48,7 @@
   .claims-page button {
     background-color: #333;
     color: #fff;
-    border: none;
+    border: 5px;
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;

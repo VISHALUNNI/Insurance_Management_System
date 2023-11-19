@@ -38,8 +38,8 @@ const LoginPage = ({ onLogin }) => {
      <div className='img'>
       <h2 className='login-title'>Login</h2>
       <form onSubmit={handleLogin} className='login-form'>
-      
-        <motion.div className="input-container"
+      <div className="input-container" style={{ marginBottom: '10px' }}>
+        <motion.div
          initial={{opacity:0}}
          animate={{opacity:1}}
          transition={{delay:0.5}}
@@ -52,7 +52,10 @@ const LoginPage = ({ onLogin }) => {
             required
           />
         </motion.div>
-        <motion.div className="input-container"
+        </div>
+
+        <div className="input-container">
+        <motion.div
          initial={{opacity:0}}
          animate={{opacity:1}}
          transition={{delay:0.5}}
@@ -65,8 +68,10 @@ const LoginPage = ({ onLogin }) => {
             required
           />
         </motion.div>
+        </div>
         <button type="submit">Login</button>
       </form>
+      
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <p className='login-nav-links'>
         New user? <Link to="/signup">Sign up here</Link>
@@ -74,7 +79,7 @@ const LoginPage = ({ onLogin }) => {
       <p className='login-nav-links'>  
         <Link to="/forgot-password">Forgot Password?</Link>
       </p>
-    </div>
+      </div>
     </div>
   );
 };
