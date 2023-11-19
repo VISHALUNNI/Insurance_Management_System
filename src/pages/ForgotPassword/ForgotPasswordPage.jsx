@@ -17,7 +17,7 @@ const ForgotPasswordPage = () => {
 
     try {
       // Send reset password email
-      await supabase.auth.resetPasswordForEmail(email, {
+      const {data , error}=await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: 'https://imsappp.vercel.app/#/reset-password',
 });
 
