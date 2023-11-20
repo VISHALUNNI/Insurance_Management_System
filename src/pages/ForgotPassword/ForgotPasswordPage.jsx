@@ -12,35 +12,25 @@ const ForgotPasswordPage = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleForgotPassword = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Send reset password email
-      const {data , error}=await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'https://imsappp.vercel.app/#/reset-password',
-});
-
+      const { error } = await supabase.auth.resetPasswordForEmail(email);
       if (error) {
-        throw error;
+        console.error('Error sending reset email:', error.message);
+      } else {
+        console.log('Reset email sent successfully!');
       }
-
-      // Display success message and navigate to login page
-      setSuccessMessage('Password reset email sent. Check your inbox.');
-      setErrorMessage('');
-      navigate(`/login`);
     } catch (error) {
-      console.error(error);
-      // Display error message if there's an issue with sending the reset password email
-      setErrorMessage('Error sending reset password email. Please try again.');
-      setSuccessMessage('');
+      console.error('Error sending reset email:', error.message);
     }
   };
 
   return (
     <div className='forgot-password-container'>
       <h2 className='forgot-password-title'>Forgot Password</h2>
-      <form onSubmit={handleForgotPassword} className='forgot-password-form'>
+      <form onSubmit={handleSubmit} className='forgot-password-form'>
         <div className="forgot-password-input-container">
           <FontAwesomeIcon icon={faEnvelope} />
           <input
