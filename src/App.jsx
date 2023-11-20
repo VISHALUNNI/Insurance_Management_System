@@ -41,6 +41,7 @@ function NavbarAuthenticated() {
     <>
       <div className="logo">
         <img src={logo1} alt='logo' className="company"/>
+        </div>
         <Link to="/">Home</Link>
         <Link to="/claims">Manage Claims</Link>
         <Link to="/policies">Manage Policies</Link>
@@ -59,7 +60,7 @@ function NavbarAuthenticated() {
             </div>
           )}
         </div>
-      </div>
+      
     </>
   );
 }
