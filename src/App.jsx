@@ -14,9 +14,10 @@ import ForgotPasswordPage from "./pages/ForgotPassword/ForgotPasswordPage";
 import CreateProfilePage from "./pages/CreateProfile/CreateProfilePage";
 import Dashboard from "./pages/DashBoard";
 import ResetPasswordPage from "./pages/ResetPassword";
+import UpdateProfilePage from "./pages/UpdateProfile/UpdateProfilePage";
 import logo1 from './logo1.png';
 
-function NavbarAuthenticated() {
+function NavbarAuthenticated({ onLogout }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
@@ -28,8 +29,9 @@ function NavbarAuthenticated() {
 
   const handleLogout = async () => {
     // Logout user using Supabase
-    const { error } = await supabase.auth.signOut()
+    const { error } = await supabase.auth.signOut();
     setShowDropdown(false);
+    onLogout(); // Call the provided onLogout function to update user state
     navigate('/');
   };
 
@@ -41,6 +43,7 @@ function NavbarAuthenticated() {
     <>
       <div className="logo">
         <img src={logo1} alt='logo' className="company"/>
+        </div>
         <Link to="/">Home</Link>
         <Link to="/claims">Manage Claims</Link>
         <Link to="/policies">Manage Policies</Link>
@@ -48,10 +51,10 @@ function NavbarAuthenticated() {
         <Link to="/vehicle-insurance">Purchase Vehicle Insurance</Link>
         <Link to="/dashboard">Dashboard</Link>
         <div className="navbar-profile">
-          <div className="profile-icon" onClick={toggleDropdown}>
+          <button className="profile-icon" onClick={toggleDropdown}>
             {/* You can use an icon here, e.g., user icon */}
             🧑
-          </div>
+          </button>
           {showDropdown && (
             <div className="profile-dropdown">
               <button onClick={handleUpdateProfile}>Update Profile</button>
@@ -59,7 +62,6 @@ function NavbarAuthenticated() {
             </div>
           )}
         </div>
-      </div>
     </>
   );
 }
@@ -105,7 +107,11 @@ function App() {
   return (
     <BrowserRouter>
       <nav className="navbar">
-        {user ? <NavbarAuthenticated /> : <NavbarDefault />}
+        {user ? (
+          <NavbarAuthenticated onLogout={handleLogout} />
+        ) : (
+          <NavbarDefault />
+        )}
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -119,6 +125,7 @@ function App() {
         <Route path="/create-profile" element={<CreateProfilePage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
+        <Route path="/profile-update" element={<UpdateProfilePage/>}/>
       </Routes>
     </BrowserRouter>
   );

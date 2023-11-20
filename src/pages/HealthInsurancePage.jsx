@@ -8,7 +8,7 @@ const HealthInsurancePage = () => {
        <div className="ht">
        </div>
        <div>
-      <h1>Health Insurance</h1>
+      <h1 className=''>Health Insurance</h1>
       <p>
         Health insurance is a vital form of coverage that helps protect your
         financial well-being and health by providing assistance with medical
