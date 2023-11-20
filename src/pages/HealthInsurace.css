@@ -7,5 +7,45 @@ h1,p,ul,li{
     background-repeat: no-repeat;
     background-position: center top;
     height: 30vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.rf h1 { 
+    font-size: 40px;
+   
 
+  }
+  .rf p{
+   
+    font-size: 20px;
+  }
+  .hh h3{
+    font-size: 30px;
+    text-indent: 20px;
+  }
+.hh ul{
+    text-indent: 30px;
+    font-size: 18px;
+}
+.gf h3{
+    font-size: 30px;
+    text-indent: 20px;
+}
+.gf p{
+    font-size: 18px;
+    text-indent: 20px;
+}
+
+.gf ul{
+    text-indent: 30px;
+    font-size: 18px;
+}
+.pp p {
+    text-indent: 10px;
+    font-size: 19px;
+}
+.bg{
+    padding: 20px;
 }

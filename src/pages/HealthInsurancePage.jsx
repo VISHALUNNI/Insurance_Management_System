@@ -5,9 +5,12 @@ import './LifeInsurance_Coverage_.webp';
 const HealthInsurancePage = () => {
   return (
     <div>
+   
        <div className="ht">
        </div>
-       <div>
+       <div className='bg'>
+       <div className='rf'>
+        
       <h1 className=''>Health Insurance</h1>
       <p>
         Health insurance is a vital form of coverage that helps protect your
@@ -19,6 +22,8 @@ const HealthInsurancePage = () => {
         receive proper medical care when needed without facing substantial
         out-of-pocket costs.
       </p>
+      </div>
+      <div className='hh'>
       <h3>Key Features of Health Insurance:</h3>
       <ul>
         <li>
@@ -44,6 +49,9 @@ const HealthInsurancePage = () => {
           insurance plans offer mental health services and maternity coverage.
         </li>
       </ul>
+      </div>
+
+      <div className='gf'>
       <h3>Types of Health Insurance Plans:</h3>
       <p>
         There are different types of health insurance plans, each with its
@@ -72,6 +80,9 @@ const HealthInsurancePage = () => {
           Savings Accounts (HSAs) for tax advantages.
         </li>
       </ul>
+      </div>
+
+      <div className='pp'>
       <p>
         When selecting a health insurance plan, it's crucial to evaluate your
         healthcare needs, budget, and preferences. Consider factors such as
@@ -79,6 +90,8 @@ const HealthInsurancePage = () => {
         providers.
       </p>
       </div>
+
+    </div>
     </div>
   );
 };

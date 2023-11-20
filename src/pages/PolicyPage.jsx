@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState } from 'react';
 import './PolicyPage.css'
 import { Link } from 'react-router-dom';
 import './36.png';
@@ -21,14 +21,27 @@ const policies = [
 ];
 
 const PolicyCard = ({ name1,title, description,path }) => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
-    <div className="policy-card">
+    <div className={`policy-card ${isHovered ? 'hovered' : ''}`} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+      <div className={name1} id={`${name1}-image large-image`}></div>
+      <h2><Link to={path}>{title}</Link></h2>
+      {isHovered && (
+        <div className="vehi-description">
+          {description}
+        </div>
+      )}
+    </div>
+  );
+};
+
+    /*<div className="policy-card">
       <div className={name1}></div>
       <h2><Link to={path}>{title}</Link></h2>
       <p>{description}</p>
     </div>
   );
-};
+};*/
 
 const PolicyPage = () => {
   return (
