@@ -62,6 +62,7 @@ function NavbarAuthenticated({ onLogout }) {
             </div>
           )}
         </div>
+      
     </>
   );
 }

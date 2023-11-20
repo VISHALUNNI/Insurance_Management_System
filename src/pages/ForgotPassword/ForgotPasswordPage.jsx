@@ -28,6 +28,8 @@ const ForgotPasswordPage = () => {
   };
 
   return (
+    <div>
+      <div className='fp'>
     <div className='forgot-password-container'>
       <h2 className='forgot-password-title'>Forgot Password</h2>
       <form onSubmit={handleSubmit} className='forgot-password-form'>
@@ -50,6 +52,8 @@ const ForgotPasswordPage = () => {
           Remember your password? <Link to="/login">Login</Link>
         </p>
       </div>
+    </div>
+    </div>
     </div>
   );
 };

@@ -5,14 +5,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 0;
     background-color: #f0f0f0;
     flex-direction: column;
   }
   
   /* Form */
   .signup-form {
-    width: 350px;
+    width: 450px;
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ccc;
@@ -22,6 +22,7 @@
   
   /* Title */
   .signup-title {
+    color:rgb(254, 252, 252);
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
@@ -39,7 +40,7 @@
   }
   
   .input-container input {
-    width: 100%;
+    width: 96%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -79,5 +80,14 @@
   .error-message {
     color: red;
     margin-top: 10px;
+  }
+  .sg{
+    display: flex;
+    background-image:linear-gradient( #003b79,black);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  
   }
   

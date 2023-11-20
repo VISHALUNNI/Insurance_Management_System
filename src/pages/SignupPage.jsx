@@ -88,6 +88,8 @@ const SignupPage = () => {
   };
 
   return (
+    <div>
+      <div className='sg'>
     <div className='signup-container'>
       <h2 className='signup-title'>Sign Up</h2>
       <form onSubmit={handleSignup} className='signup-form'>
@@ -127,6 +129,8 @@ const SignupPage = () => {
           <Link to="/forgot-password">Forgot Password?</Link>
         </p>
       </div>
+    </div>
+    </div>
     </div>
   );
 };
