@@ -10,6 +10,9 @@ function Home() {
   return (
     <div className="HomePage">
       <div className="hj">
+        <div className='overlay'>
+          <div className="text">"WELCOME TO HAPPILY INSURED"</div>
+        </div>
       </div>
       <div className="man"> </div>
        <div className="AboutUs">

@@ -52,8 +52,6 @@ function NavbarAuthenticated({ onLogout }) {
         <Link to="/dashboard">Dashboard</Link>
         <div className="navbar-profile">
           <button className="profile-icon" onClick={toggleDropdown}>
-            {/* You can use an icon here, e.g., user icon */}
-            🧑
           </button>
           {showDropdown && (
             <div className="profile-dropdown">

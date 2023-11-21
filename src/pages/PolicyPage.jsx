@@ -35,13 +35,6 @@ const PolicyCard = ({ name1,title, description,path }) => {
   );
 };
 
-    /*<div className="policy-card">
-      <div className={name1}></div>
-      <h2><Link to={path}>{title}</Link></h2>
-      <p>{description}</p>
-    </div>
-  );
-};*/
 
 const PolicyPage = () => {
   return (
