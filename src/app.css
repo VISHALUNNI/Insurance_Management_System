@@ -36,3 +36,9 @@
     height: 50px;
     
   }
+  .profile-dropdown button{
+    background-image: none;
+    border-radius: 10px;
+    width:65px;
+    display: grid;
+  }

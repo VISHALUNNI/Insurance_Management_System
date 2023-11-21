@@ -1,4 +1,3 @@
-// Dashboard.jsx
 
 import React, { useEffect, useState } from 'react';
 import PolicyCard from './PolicyCard'; // Import the PolicyCard component
@@ -35,7 +34,7 @@ const Dashboard = () => {
     fetchUserPolicies();
   }, []);
 
-  return (
+ return (
     <div className="dashboard-container">
       <h2>User Dashboard</h2>
       {loading ? (

@@ -18,6 +18,7 @@ import UpdateProfilePage from "./pages/UpdateProfile/UpdateProfilePage";
 import logo1 from './logo1.png';
 import PurchasePolicyPage from "./pages/PurchasePolicyPage";
 
+
 function NavbarAuthenticated({ onLogout }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
