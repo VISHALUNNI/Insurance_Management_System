@@ -5,3 +5,36 @@ background-position: center top;
 width:100%;
 height:20vw;
 }
+.fg{
+    padding:20px;
+}
+.ii h1{
+    font-size: 40px;
+}
+.ii p{
+    font-size: 20px;
+}
+.pg h3{
+    font-size: 30px;
+    text-indent: 20px;
+}
+.pg ul{
+    text-indent: 30px;
+    font-size: 18px;
+}
+.ft p{
+    font-size: 18px;
+    text-indent: 20px;
+}
+.ft h3{
+    font-size: 30px;
+    text-indent: 20px;
+}
+.ft ul{
+    text-indent: 30px;
+    font-size: 18px;
+}
+.as p{
+    text-indent: 10px;
+    font-size: 19px;
+}

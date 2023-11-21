@@ -4,8 +4,10 @@ import './VehicleInsurance.css';
 const VehicleInsurancePage = () => {
   return (
 
-    <div>
-          <div className='vh'></div>
+   <div>
+      <div className='vh'></div>
+          <div className='fg'>
+            <div className='ii'>
       <h1>Vehicle Insurance</h1>
       <p>
         Vehicle insurance, also known as auto insurance or car insurance,
@@ -18,6 +20,8 @@ const VehicleInsurancePage = () => {
         ownership. It not only protects you and your vehicle but also provides
         coverage for third-party liabilities.
       </p>
+      </div>
+      <div className='pg'>
       <h3>Key Features of Vehicle Insurance:</h3>
       <ul>
         <li>
@@ -43,6 +47,8 @@ const VehicleInsurancePage = () => {
           expenses for you and your passengers after an accident.
         </li>
       </ul>
+      </div>
+      <div className='ft'>
       <h3>Types of Vehicle Insurance Policies:</h3>
       <p>
         Vehicle insurance policies can vary based on the level of coverage
@@ -63,11 +69,15 @@ const VehicleInsurancePage = () => {
           in case of a total loss.
         </li>
       </ul>
+      </div>
+      <div className='as'>
       <p>
         When choosing a vehicle insurance policy, it's essential to consider
         your specific needs and budget. Compare different policies and options
         to find the one that best suits you.
       </p>
+      </div>
+    </div>
     </div>
   );
 };

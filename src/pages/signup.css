@@ -13,7 +13,7 @@
   /* Form */
   .signup-form {
     width: 450px;
-    background-color: #fff;
+    background-image:linear-gradient(white,rgb(179, 174, 174));
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -52,11 +52,11 @@
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 15px;
     padding: 10px 15px;
     cursor: pointer;
-    width: 100%;
-    margin-top: 20px;
+    width: 74%;
+    margin:18px 56px;
   }
   
   .signup-form button:hover {
