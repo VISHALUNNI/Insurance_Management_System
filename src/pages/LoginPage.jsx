@@ -35,15 +35,16 @@ const LoginPage = ({ onLogin }) => {
 
   return (
     <div className='login-container'>
-     <div className='img'>
-      <h2 className='login-title'>Login</h2>
-      <form onSubmit={handleLogin} className='login-form'>
-      <div className="input-container" style={{ marginBottom: '10px' }}>
-        <motion.div
+          <motion.div
          initial={{opacity:0}}
          animate={{opacity:1}}
          transition={{delay:0.5}}
         >
+     <div className='img'>
+      <h2 className='login-title'>Login</h2>
+      <form onSubmit={handleLogin} className='login-form'>
+      <div className="input-container" style={{ marginBottom: '10px' }}>
+        
           <input
             type="email"
             placeholder="Email"
@@ -51,15 +52,9 @@ const LoginPage = ({ onLogin }) => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </motion.div>
         </div>
 
         <div className="input-container">
-        <motion.div
-         initial={{opacity:0}}
-         animate={{opacity:1}}
-         transition={{delay:0.5}}
-        >
           <input
             type="password"
             placeholder="Password"
@@ -67,7 +62,7 @@ const LoginPage = ({ onLogin }) => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </motion.div>
+      
         </div>
         <button type="submit">Login</button>
       </form>
@@ -79,7 +74,9 @@ const LoginPage = ({ onLogin }) => {
       <p className='login-nav-links'>  
         <Link to="/forgot-password">Forgot Password?</Link>
       </p>
+     
       </div>
+      </motion.div>
     </div>
   );
 };
