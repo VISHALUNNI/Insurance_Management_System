@@ -12,13 +12,14 @@ const UpdateProfilePage = () => {
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [error, setError] = useState('');
+  const [id, setId] = useState('');
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         // Get the current user
         const { data: user, error } = await supabase.auth.getUser();
-
+        //console.log(user.user)
         if (error) {
           throw error;
         }
@@ -26,17 +27,17 @@ const UpdateProfilePage = () => {
         // Fetch existing profile data if available
         const { data: profileData } = await supabase
           .from('customer')
-          .select()
-          .eq('user_id', user.id)
-          .single();
+          .select('*')
+          .eq('user_id', user.user.id);
         console.log(profileData)
         if (profileData) {
-          setFirstName(profileData.first_name || '');
-          setLastName(profileData.last_name || '');
-          setDateOfBirth(profileData.date_of_birth || '');
-          setSex(profileData.sex || '');
-          setAddress(profileData.address || '');
-          setPhoneNumber(profileData.phone_number || '');
+          setFirstName(profileData[0].first_name || '');
+          setLastName(profileData[0].last_name || '');
+          setDateOfBirth(profileData[0].date_of_birth || '');
+          setSex(profileData[0].sex || '');
+          setAddress(profileData[0].address || '');
+          setPhoneNumber(profileData[0].phone_number || '');
+          setId(profileData[0].id);
         }
       } catch (error) {
         console.error('Error fetching user data:', error.message);
@@ -57,14 +58,14 @@ const UpdateProfilePage = () => {
 
     try {
       // Get the current user
-      const { data: user } = await supabase.auth.user();
+      const { data: user } = await supabase.auth.getUser();
 
       // Save the updated profile data to the Supabase database
       const { data, error } = await supabase
         .from('customer')
-        .upsert([
+        .update([
           {
-            user_id: user.id,
+            user_id: user.user.id,
             first_name: firstName,
             last_name: lastName,
             date_of_birth: dateOfBirth,
@@ -72,7 +73,8 @@ const UpdateProfilePage = () => {
             address,
             phone_number: phoneNumber,
           },
-        ]);
+        ])
+        .eq("id",id);
 
       if (error) {
         throw error;

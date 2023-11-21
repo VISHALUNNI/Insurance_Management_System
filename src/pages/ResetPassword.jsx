@@ -45,7 +45,7 @@ const ResetPasswordPage = () => {
       }
 
       // Change the password using supabase.auth.updateUser
-      const { user, error: passwordUpdateError } = await supabase.auth.updateUser({
+      const { user, error: passwordUpdateError } = await supabase.auth.updateUser(accessToken,{
         password: newPassword,
       });
 
@@ -67,7 +67,7 @@ const ResetPasswordPage = () => {
       console.log('Password Changed successfully');
 
       // Navigate to the login page after successful password change
-      navigate('/login');
+      navigate('/dashboard');
     } catch (error) {
       console.error('Sorry, an error occurred:', error.message);
     }

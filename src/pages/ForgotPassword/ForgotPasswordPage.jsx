@@ -21,6 +21,7 @@ const ForgotPasswordPage = () => {
         console.error('Error sending reset email:', error.message);
       } else {
         console.log('Reset email sent successfully!');
+        alert("Reset Email Sent Successfully, Please Check Your Inboxhg")
       }
     } catch (error) {
       console.error('Error sending reset email:', error.message);
