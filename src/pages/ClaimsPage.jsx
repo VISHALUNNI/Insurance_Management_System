@@ -31,12 +31,31 @@ const ClaimsPage = () => {
       navigate('/login');
       return;
     }
+console.log(user_id)
+  try {
+      // Insert claim data into the claims table
+      const { data, error } = await supabase
+        .from('claims')
+        .insert([
+          {
+            user_id: user.id,
+            policy_number: policyNumber,
+            claim_details: claimDetails,
+            claim_date: new Date().toISOString(),
+          },
+        ]);
 
-    // Implement your claim submission logic here
-    console.log('Policy Number:', policyNumber);
-    console.log('Claim Details:', claimDetails);
+      if (error) {
+        throw error;
+      }
 
-    // You can add further logic to submit the claim data to a server or store it in your application state
+      console.log('Claim submitted successfully:', data);
+      window.alert('Claim submitted successfully.');
+      // You can redirect the user to a confirmation page or perform other actions as needed
+    } catch (error) {
+      console.error('Error submitting claim:', error.message);
+      window.alert('Error submitting claim. Please try again.');
+    }
   };
 
   return (

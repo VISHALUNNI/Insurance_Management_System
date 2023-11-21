@@ -18,7 +18,7 @@ const SignupPage = () => {
         username,
         email,
         password,
-      });
+      }); 
 
       if (error) {
         setErrorMessage(error.message);

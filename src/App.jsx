@@ -16,6 +16,7 @@ import Dashboard from "./pages/DashBoard";
 import ResetPasswordPage from "./pages/ResetPassword";
 import UpdateProfilePage from "./pages/UpdateProfile/UpdateProfilePage";
 import logo1 from './logo1.png';
+import PurchasePolicyPage from "./pages/PurchasePolicyPage";
 
 function NavbarAuthenticated({ onLogout }) {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -46,9 +47,7 @@ function NavbarAuthenticated({ onLogout }) {
         </div>
         <Link to="/">Home</Link>
         <Link to="/claims">Manage Claims</Link>
-        <Link to="/policies">Manage Policies</Link>
-        <Link to="/health-insurance">Purchase Health Insurance</Link>
-        <Link to="/vehicle-insurance">Purchase Vehicle Insurance</Link>
+        <Link to="/purchase-policy">Purchase Insurance</Link>
         <Link to="/dashboard">Dashboard</Link>
         <div className="navbar-profile">
           <button className="profile-icon" onClick={toggleDropdown}>
@@ -127,6 +126,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route path="/profile-update" element={<UpdateProfilePage/>}/>
+        <Route path="/purchase-policy" element={<PurchasePolicyPage />} />
       </Routes>
     </BrowserRouter>
   );
