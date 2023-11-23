@@ -7,13 +7,13 @@ const ClaimsPage = () => {
   const navigate = useNavigate();
   const [policyNumber, setPolicyNumber] = useState('');
   const [claimDetails, setClaimDetails] = useState('');
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // Initialize user state
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const { data } = await supabase.auth.user();
-        setUser(data);
+        const { data } = await supabase.auth.getUser();
+        setUser(data); // Set the user information in the state
       } catch (error) {
         console.error('Error fetching user:', error.message);
       }
@@ -24,24 +24,24 @@ const ClaimsPage = () => {
 
   const handleClaimSubmission = async (e) => {
     e.preventDefault();
-
+    console.log(user.user.id)
     if (!user) {
       window.alert('Please log in to submit a claim.');
-      // If the user is not logged in, navigate to the login page
       navigate('/login');
       return;
     }
-console.log(user_id)
-  try {
+
+    try {
       // Insert claim data into the claims table
       const { data, error } = await supabase
         .from('claims')
         .insert([
           {
-            user_id: user.id,
+            user_id: user.user.id,
             policy_number: policyNumber,
-            claim_details: claimDetails,
+            claim_data: claimDetails,
             claim_date: new Date().toISOString(),
+            email: user.user.email,
           },
         ]);
 

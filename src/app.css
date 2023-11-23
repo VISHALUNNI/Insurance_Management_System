@@ -37,8 +37,8 @@
     
   }
   .profile-dropdown button{
-    background-image: none;
-    border-radius: 10px;
-    width:65px;
-    display: grid;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.681),rgb(21, 33, 128));
+    border-radius: 5px;
+    width:70px;
+    margin:1px 10px;
   }

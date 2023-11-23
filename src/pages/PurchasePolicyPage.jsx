@@ -1,5 +1,6 @@
 import React from 'react';
 import supabase from '../config/SupabaseClient';
+import './PurchasePolicyPage.css';
 
 const PurchasePolicyPage = () => {
   const handlePurchase = async(policyType) => {
@@ -39,11 +40,12 @@ function shuffleString(string) {
       return;
     }
 
-    alert('Policy purchased successfully Policy ID:', shuffledCode);
+    alert('Policy purchased successfully Policy ID:',shuffledCode);
   };
 
   return (
     <div>
+      <div className='kk'>
       <h2>Purchase Policy</h2>
       <p>Select the type of policy you want to purchase:</p>
       <div>
@@ -51,6 +53,7 @@ function shuffleString(string) {
       </div>
       <div>
         <button onClick={() => handlePurchase('Vehicle')}>Vehicle Insurance</button>
+      </div>
       </div>
     </div>
   );

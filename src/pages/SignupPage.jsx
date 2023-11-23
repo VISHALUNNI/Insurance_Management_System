@@ -9,9 +9,15 @@ const SignupPage = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const Navigate = useNavigate();
+  const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    if (!isEmailValid(email)) {
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
+
 
     try {
       const { user, error } = await supabase.auth.signUp({
@@ -73,6 +79,7 @@ const SignupPage = () => {
             username,
             email,
             password,
+            role: "user"
           },
         ])
         .select();

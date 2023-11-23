@@ -7,9 +7,8 @@ import './Dashboard.css'; // Import the CSS file
 const Dashboard = () => {
   const [userPolicies, setUserPolicies] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    // Fetch user policies from the Supabase database
+  
     const fetchUserPolicies = async () => {
       try {
         const { data: { user } } = await supabase.auth.getUser();

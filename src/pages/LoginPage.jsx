@@ -28,7 +28,8 @@ const LoginPage = ({ onLogin }) => {
       onLogin(user);
       navigate("/dashboard")
     } catch (error) {
-      setErrorMessage('Invalid email or password');
+      alert('Invalid email or password')
+      setErrorMessage('Invalid email or password')
       console.error('Error signing in:', error.message);
     }
   };
