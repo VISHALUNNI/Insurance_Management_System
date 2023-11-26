@@ -19,6 +19,8 @@ import logo1 from './logo1.png';
 import PurchasePolicyPage from "./pages/PurchasePolicyPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminRoute from "./pages/AdminRoute"
+import PurchaseOptionsPage from './pages/PurchaseOptionsPage'; // Import the PurchaseOptionsPage component
+import PaymentSuccessPage from './pages/PaymentSuccessPage';
 
 
 
@@ -141,6 +143,8 @@ function App() {
         <Route path="/profile-update" element={<UpdateProfilePage/>}/>
         <Route path="/purchase-policy" element={<PurchasePolicyPage />} />
         <Route path="/admin-dashboard" element={<AdminRoute element={<AdminDashboard />} />}/>
+        <Route path="/purchase-options" element={<PurchaseOptionsPage />} />
+        <Route path="/payment-success" element={<PaymentSuccessPage />} />
         
       </Routes>
     </BrowserRouter>
