@@ -36,9 +36,23 @@
     height: 50px;
     
   }
+
+  .profile-dropdown{
+    position: absolute;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 150px;
+    background-color: #071263;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
   .profile-dropdown button{
-    background-image: linear-gradient(rgba(255, 255, 255, 0.681),rgb(21, 33, 128));
+    white-space: nowrap;   
+    width: 130px;
+    background: rgba(255, 255, 255, 0);
+    color: azure;
     border-radius: 5px;
-    width:70px;
     margin:1px 10px;
   }
