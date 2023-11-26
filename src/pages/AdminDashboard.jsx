@@ -1,54 +1,62 @@
+// AdminDashboard.jsx
 import React, { useEffect, useState } from 'react';
 import supabase from '../config/SupabaseClient';
 
 const AdminDashboard = () => {
-  const [nonAdminUsers, setNonAdminUsers] = useState([]);
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    // Fetch non-admin users from the Supabase database
-    const fetchNonAdminUsers = async () => {
+    // Fetch admin notifications from Supabase
+    const fetchNotifications = async () => {
       try {
-        const { data, error } = await supabase
-          .from('users')
-          .select('*')
-          .neq('role', 'admin'); // Assuming 'role' is a column indicating user role
-
+        const { data, error } = await supabase.from('adminnotifications').select('*');
         if (error) {
-          throw error;
+          console.error('Error fetching admin notifications:', error.message);
+          return;
         }
-
-        setNonAdminUsers(data);
+        setNotifications(data);
       } catch (error) {
-        console.error('Error fetching non-admin users:', error.message);
+        console.error('Error fetching admin notifications:', error.message);
       }
     };
 
-    fetchNonAdminUsers();
+    // Call the fetchNotifications function when the component mounts
+    fetchNotifications();
   }, []);
+
+  const handleAcknowledge = async (notificationId) => {
+    try {
+      // Remove the acknowledged notification from Supabase
+      await supabase.from('admin_notifications').delete().eq('id', notificationId);
+      console.log('Notification acknowledged and removed.');
+      const { data: agents, error: agentsError } = await supabase.from('agents').select('*');
+      if (agentsError) {
+        console.error('Error fetching agents:', agentsError.message);
+        return;
+      }
+  
+      const randomAgent = agents[Math.floor(Math.random() * agents.length)];
+  
+      // Notify the user
+      console.log(`User assigned to agent ${randomAgent.name}`);
+    } catch (error) {
+      console.error('Error acknowledging notification:', error.message);
+    }
+  };
 
   return (
     <div>
       <h2>Admin Dashboard</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>User ID</th>
-            <th>Username</th>
-            <th>Email</th>
-            {/* Add more columns based on user attributes */}
-          </tr>
-        </thead>
-        <tbody>
-          {nonAdminUsers.map((user) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.username}</td>
-              <td>{user.email}</td>
-              {/* Add more cells based on user attributes */}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <ul>
+        {notifications.map((notification) => (
+          <li key={notification.id}>
+            {notification.message} - {notification.timestamp}
+            <button onClick={() => handleAcknowledge(notification.id)}>
+              Acknowledge
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

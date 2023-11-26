@@ -141,6 +141,7 @@ function App() {
         <Route path="/profile-update" element={<UpdateProfilePage/>}/>
         <Route path="/purchase-policy" element={<PurchasePolicyPage />} />
         <Route path="/admin-dashboard" element={<AdminRoute element={<AdminDashboard />} />}/>
+        
       </Routes>
     </BrowserRouter>
   );
