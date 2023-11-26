@@ -10,10 +10,10 @@ const PurchaseOptionsPage = () => {
         <p>Choose your coverage period:</p>
         <div>
           {/* Link to a new page for handling payment and policy creation with the selected policy type and coverage */}
-          <Link to="/purchase-details?policyType=Health">
+          <Link to="/purchase-options?policyType=Health">
             <button>Health Insurance</button>
           </Link>
-          <Link to="/purchase-details?policyType=Vehicle">
+          <Link to="/purchase-options?policyType=Vehicle">
             <button>Vehicle Insurance</button>
           </Link>
         </div>

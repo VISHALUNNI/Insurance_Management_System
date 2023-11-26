@@ -1,10 +1,13 @@
 // PurchaseDetailsPage.jsx
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 const PurchaseDetailsPage = () => {
-  const location = useLocation();
-  const { policyType } = new URLSearchParams(location.search);
+  const { search } = useLocation();
+  const queryParams = new URLSearchParams(search);
+  const policyType = queryParams.get('policyType');
+
+  console.log(policyType);
 
   const [policyAmount, setPolicyAmount] = useState(0);
 

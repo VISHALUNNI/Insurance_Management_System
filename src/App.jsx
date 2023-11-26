@@ -21,6 +21,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminRoute from "./pages/AdminRoute"
 import PurchaseOptionsPage from './pages/PurchaseOptionsPage'; // Import the PurchaseOptionsPage component
 import PaymentSuccessPage from './pages/PaymentSuccessPage';
+import PurchaseDetailsPage from "./pages/PurchaseDetailsPage";
 
 
 
@@ -143,7 +144,7 @@ function App() {
         <Route path="/profile-update" element={<UpdateProfilePage/>}/>
         <Route path="/purchase-policy" element={<PurchasePolicyPage />} />
         <Route path="/admin-dashboard" element={<AdminRoute element={<AdminDashboard />} />}/>
-        <Route path="/purchase-options" element={<PurchaseOptionsPage />} />
+        <Route path="/purchase-options" element={<PurchaseDetailsPage />} />
         <Route path="/payment-success" element={<PaymentSuccessPage />} />
         
       </Routes>
