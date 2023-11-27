@@ -40,10 +40,12 @@ const LoginPage = ({ onLogin }) => {
       if (data && data.role && data.role.includes('admin')) {
         // If the user is an admin, navigate to the admin dashboard
         navigate('/admin-dashboard');
+        window.location.reload();
       } else {
         // If not an admin, proceed with regular user login
         onLogin(user);
         navigate('/dashboard');
+        window.location.reload();
       }
     } catch (error) {
       alert('Invalid email or password');

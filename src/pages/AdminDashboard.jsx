@@ -29,7 +29,7 @@ const AdminDashboard = () => {
       // Remove the acknowledged notification from Supabase
       await supabase.from('admin_notifications').delete().eq('id', notificationId);
       console.log('Notification acknowledged and removed.');
-      const { data: agents, error: agentsError } = await supabase.from('agents').select('*');
+      const { data: agents, error: agentsError } = await supabase.from('agent').select('*');
       if (agentsError) {
         console.error('Error fetching agents:', agentsError.message);
         return;

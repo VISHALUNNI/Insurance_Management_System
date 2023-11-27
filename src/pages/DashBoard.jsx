@@ -5,6 +5,7 @@ import supabase from '../config/SupabaseClient';
 import './Dashboard.css'; // Import the CSS file
 
 const Dashboard = () => {
+  console.log("pro")
   const [userPolicies, setUserPolicies] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {

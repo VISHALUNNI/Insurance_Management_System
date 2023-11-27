@@ -45,6 +45,7 @@ const CreateProfilePage = () => {
   
       // Redirect to the user dashboard after successful profile creation
       navigate("/dashboard");
+      window.location.reload();
     } catch (error) {
       setError('Error creating profile. Please try again later.');
       console.error('Error creating profile:', error.message);

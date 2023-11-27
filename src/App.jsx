@@ -1,9 +1,8 @@
-// Import necessary dependencies
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 import supabase from "./config/SupabaseClient";
 import './app.css';
-import Home from './pages/Home'
+import Home from './pages/Home';
 import PolicyPage from './pages/PolicyPage';
 import ClaimsPage from "./pages/ClaimsPage";
 import HealthInsurancePage from "./pages/HealthInsurancePage";
@@ -19,27 +18,22 @@ import logo1 from './logo1.png';
 import PurchasePolicyPage from "./pages/PurchasePolicyPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminRoute from "./pages/AdminRoute"
-import PurchaseOptionsPage from './pages/PurchaseOptionsPage'; // Import the PurchaseOptionsPage component
 import PaymentSuccessPage from './pages/PaymentSuccessPage';
 import PurchaseDetailsPage from "./pages/PurchaseDetailsPage";
 
-
-
-function NavbarAuthenticated({ onLogout, isAdmin }) {
+const NavbarAuthenticated = React.memo(({ onLogout, isAdmin }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
   const handleUpdateProfile = () => {
-    // Redirect to the profile update page
     setShowDropdown(false);
     navigate('/profile-update');
   };
 
   const handleLogout = async () => {
-    // Logout user using Supabase
     const { error } = await supabase.auth.signOut();
     setShowDropdown(false);
-    onLogout(); // Call the provided onLogout function to update user state
+    onLogout();
     navigate('/');
   };
 
@@ -71,9 +65,9 @@ function NavbarAuthenticated({ onLogout, isAdmin }) {
       </div>
     </>
   );
-}
-
-function NavbarDefault() {
+});
+NavbarAuthenticated.displayName = 'NavbarAuthenticated';
+const NavbarDefault = React.memo(() => {
   return (
     <>
       <div className="logo">
@@ -85,9 +79,9 @@ function NavbarDefault() {
       <Link to="/login">Login / Sign Up</Link>
     </>
   );
-}
-
-function App() {
+});
+NavbarDefault.displayName = 'NavbarDefault';
+const App = React.memo(() => {
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -100,7 +94,6 @@ function App() {
           .select('email, role')
           .eq('email', data.user.email)
           .single();
-        console.log(userData.role)
         setUser(userData);
         setIsAdmin(userData.role === 'admin');
       } catch (error) {
@@ -144,12 +137,11 @@ function App() {
         <Route path="/profile-update" element={<UpdateProfilePage/>}/>
         <Route path="/purchase-policy" element={<PurchasePolicyPage />} />
         <Route path="/admin-dashboard" element={<AdminRoute element={<AdminDashboard />} />}/>
-        <Route path="/purchase-options" element={<PurchaseDetailsPage />} />
+        <Route path="/purchase-details" element={<PurchaseDetailsPage />} />
         <Route path="/payment-success" element={<PaymentSuccessPage />} />
-        
       </Routes>
     </BrowserRouter>
   );
-}
-
+});
+App.displayName = 'App';
 export default App;

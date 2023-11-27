@@ -1,25 +1,32 @@
-// PaymentSuccessPage.jsx
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import supabase from '../config/SupabaseClient';
 
 const PaymentSuccessPage = () => {
-  const location = useLocation();
-  const { policyType, coverage } = new URLSearchParams(location.search);
+  const searchParams = new URLSearchParams(window.location.search);
+  const policyType = searchParams.get('policyType');
+  const coverage = searchParams.get('coverage');
+
+  const [notificationSent, setNotificationSent] = useState(false);
 
   useEffect(() => {
-    // Notify the admin when the component mounts
-    notifyAdmin(policyType, coverage);
-  }, [policyType, coverage]);
+    if (!notificationSent) {
+      notifyAdmin(policyType, coverage);
+      setNotificationSent(true);
+    }
+
+    // Cleanup function to ensure the effect runs only once
+    return () => {
+      console.log('Effect cleanup');
+    };
+  }, []); // Empty dependency array to run the effect only once
 
   const notifyAdmin = async (policyType, coverage) => {
     try {
-      // Update the admin notifications table in Supabase
       await supabase.from('adminnotifications').upsert([
         {
           message: `New purchase - ${policyType} Insurance for ${coverage} years`,
-          timestamp: new Date().toISOString(),
-        },
+          timestamp: new Date().getDate(),
+        },{onConflict:['timestamp','message']}
       ]);
 
       console.log('Admin notified successfully.');

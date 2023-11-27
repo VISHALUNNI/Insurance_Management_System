@@ -1,4 +1,4 @@
-// PurchaseDetailsPage.jsx
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
@@ -6,23 +6,25 @@ const PurchaseDetailsPage = () => {
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
   const policyType = queryParams.get('policyType');
-
-  console.log(policyType);
-
   const [policyAmount, setPolicyAmount] = useState(0);
 
   useEffect(() => {
-    // Calculate policy amount based on policy type
+    console.log("hello", policyType);
+
     const amountMultiplier = {
       Health: 1000,
       Vehicle: 2000,
     };
-
     const defaultCoverage = 3; // Default coverage is 3 years
     const amount = defaultCoverage * amountMultiplier[policyType];
     setPolicyAmount(amount);
-  }, [policyType]);
 
+    // Cleanup function to ensure the effect runs only once
+    return () => {
+      console.log("Effect cleanup");
+    };
+  
+  }, []); 
   return (
     <div>
       <div className='kk'>

@@ -4,6 +4,7 @@ import supabase from '../config/SupabaseClient';
 import './ClaimPage.css';
 
 const ClaimsPage = () => {
+  console.log("print me")
   const navigate = useNavigate();
   const [policyNumber, setPolicyNumber] = useState('');
   const [claimDetails, setClaimDetails] = useState('');
