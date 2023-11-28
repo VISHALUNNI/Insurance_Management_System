@@ -3,6 +3,10 @@ import supabase from '../config/SupabaseClient';
 
 const AuthContext = createContext();
 
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -33,14 +37,17 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     setIsAdmin(false);
   };
+  const AuthContextValue = {
+    user,
+    handleLogin,
+    handleLogout
+    //role,
+  };
 
   return (
-    <AuthContext.Provider value={{ user, isAdmin, handleLogin, handleLogout }}>
+    <AuthContext.Provider value={{AuthContextValue}}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
-    return useContext(AuthContext);
-};
