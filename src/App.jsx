@@ -2,79 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
 import supabase from './config/SupabaseClient'
 import './app.css';
-//import AuthProvider from './context/AuthContext';
-
+import AuthProvider from './contexts/authContext';
+import { NavbarAuthenticated,NavbarDefault } from './navbar/Navbar';
 import {
   Home, PolicyPage, ClaimsPage, HealthInsurancePage, VehicleInsurancePage, LoginPage, SignupPage, ForgotPasswordPage,
   CreateProfilePage, Dashboard, AdminDashboard, AdminRoute, PaymentSuccessPage, PurchasePolicyPage,
   PurchaseDetailsPage, UpdateProfilePage, ResetPasswordPage
 } from './pages'
 
-import logo1 from './logo1.png';
-
-const NavbarAuthenticated = React.memo(({ onLogout, isAdmin }) => {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const navigate = useNavigate();
-
-  const handleUpdateProfile = () => {
-    setShowDropdown(false);
-    navigate('/profile-update');
-  };
-
-  const handleLogout = async () => {
-    const { error } = await supabase.auth.signOut();
-    setShowDropdown(false);
-    onLogout();
-    navigate('/');
-  };
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
-
-  return (
-    <>
-      <div className="logo">
-        <img src={logo1} alt='logo' className="company" />
-      </div>
-      <Link to="/">Home</Link>
-      <Link to="/claims">Manage Claims</Link>
-      {isAdmin ? (
-        <Link to="/admin-dashboard">Admin Dashboard</Link>
-      ) : (
-        <Link to="/dashboard">Dashboard</Link>
-      )}
-      <Link to="/purchase-policy">Purchase Insurance</Link>
-      <div className="navbar-profile">
-        <button className="profile-icon" onClick={toggleDropdown}></button>
-        {showDropdown && (
-          <div className="profile-dropdown">
-            <button onClick={handleUpdateProfile}>Update Profile</button>
-            <button onClick={handleLogout}>Logout</button>
-          </div>
-        )}
-      </div>
-    </>
-  );
-});
 
 
-NavbarAuthenticated.displayName = 'NavbarAuthenticated';
-const NavbarDefault = React.memo(() => {
-  return (
-    <>
-      <div className="logo">
-        <img src={logo1} alt='logo' className="company" />
-      </div>
-      <Link to="/">Home</Link>
-      <Link to="/claims">Manage Claims</Link>
-      <Link to="/policies">Manage Policies</Link>
-      <Link to="/login">Login / Sign Up</Link>
-    </>
-  );
-});
-NavbarDefault.displayName = 'NavbarDefault';
-const App = React.memo(() => {
+
+const App = (() => {
   {/*const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -137,5 +76,5 @@ const App = React.memo(() => {
     </BrowserRouter>
   );
 });
-App.displayName = 'App';
+
 export default App;
