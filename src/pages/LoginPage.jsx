@@ -97,8 +97,6 @@ const LoginPage = ({ onLogin }) => {
   );
 };
 
-LoginPage.propTypes = {
-  onLogin: PropTypes.func.isRequired, // Ensure onLogin is a required function prop
-};
+
 
 export default LoginPage;

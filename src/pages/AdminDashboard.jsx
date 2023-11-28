@@ -4,7 +4,6 @@ import supabase from '../config/SupabaseClient';
 
 const AdminDashboard = () => {
   const [notifications, setNotifications] = useState([]);
-
   useEffect(() => {
     // Fetch admin notifications from Supabase
     const fetchNotifications = async () => {
@@ -15,18 +14,17 @@ const AdminDashboard = () => {
           return;
         }
         setNotifications(data);
+    
       } catch (error) {
         console.error('Error fetching admin notifications:', error.message);
       }
     };
 
-    // Call the fetchNotifications function when the component mounts
     fetchNotifications();
   }, []);
 
   const handleAcknowledge = async (notificationId) => {
     try {
-      // Remove the acknowledged notification from Supabase
       await supabase.from('admin_notifications').delete().eq('id', notificationId);
       console.log('Notification acknowledged and removed.');
       const { data: agents, error: agentsError } = await supabase.from('agent').select('*');
