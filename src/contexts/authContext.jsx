@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
           .eq('email', data.user.email)
           .single();
         setUser(userData);
-        setIsAdmin(userData.role === 'admin');
+        setIsAdmin(userData.role === 'admin');  //isAdmin maarunundo???
       } catch (error) {
         console.error('Error fetching user:', error.message);
       }

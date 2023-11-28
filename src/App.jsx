@@ -1,22 +1,19 @@
-import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
-import supabase from './config/SupabaseClient'
+//import supabase from '../config/SupabaseClient'
 import './app.css';
-import AuthProvider from './contexts/authContext';
-import { NavbarAuthenticated,NavbarDefault } from './navbar/Navbar';import { useAuth } from './contexts/authContext';
+import { NavbarAuthenticated,NavbarDefault } from './navbar/Navbar';
+import { useAuth } from './contexts/authContext';
 import {
   Home, PolicyPage, ClaimsPage, HealthInsurancePage, VehicleInsurancePage, LoginPage, SignupPage, ForgotPasswordPage,
   CreateProfilePage, Dashboard, AdminDashboard, AdminRoute, PaymentSuccessPage, PurchasePolicyPage,
   PurchaseDetailsPage, UpdateProfilePage, ResetPasswordPage
 } from './pages'
 
-
-
-
 const App = (() => {
+  const { user, handleLogin, handleLogout, isAdmin } = useAuth();
+
   {/*const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
-
   useEffect(() => {
     const fetchUser = async () => {
       try {
