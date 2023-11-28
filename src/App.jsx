@@ -1,7 +1,9 @@
-import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, 
+ // Link, useNavigate 
+} from "react-router-dom";
 //import supabase from '../config/SupabaseClient'
 import './app.css';
-import { NavbarAuthenticated,NavbarDefault } from './navbar/Navbar';
+import { NavbarAuthenticated,NavbarDefault } from './components/navbar/Navbar';
 import { useAuth } from './contexts/authContext';
 import {
   Home, PolicyPage, ClaimsPage, HealthInsurancePage, VehicleInsurancePage, LoginPage, SignupPage, ForgotPasswordPage,

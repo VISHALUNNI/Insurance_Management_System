@@ -52,8 +52,6 @@ const CreateProfilePage = () => {
     }
   };
   
-  
-
 
   return (
     <div className='create-profile-container'>

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import supabase from '../config/SupabaseClient';
 import './login.css';
 import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 const LoginPage = ({ onLogin }) => {
   const navigate = useNavigate();
@@ -13,9 +13,7 @@ const LoginPage = ({ onLogin }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
-      // Sign in using Supabase Auth
       const { user, error } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -27,8 +25,8 @@ const LoginPage = ({ onLogin }) => {
 
       // Fetch user data from the user table to check the role
       const { data, error: userError } = await supabase
-        .from('users') // Replace 'user' with your actual user table name
-        .select('email, role') // Fetch email and roles
+        .from('users')
+        .select('email, role') 
         .eq('email', email)
         .single();
       console.log(data)
@@ -96,7 +94,5 @@ const LoginPage = ({ onLogin }) => {
     </div>
   );
 };
-
-
 
 export default LoginPage;
