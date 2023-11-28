@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
-import supabase from "./config/SupabaseClient";
+import supabase from './config/SupabaseClient'
 import './app.css';
-import AuthProvider from './context/AuthContext';
+import AuthProvider from './contexts/authContext';
 
 import {
   Home, PolicyPage, ClaimsPage, HealthInsurancePage, VehicleInsurancePage, LoginPage, SignupPage, ForgotPasswordPage,
