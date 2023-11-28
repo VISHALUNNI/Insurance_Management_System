@@ -1,6 +1,6 @@
 import React from 'react';
 import './HealthInsurace.css';
-import './LifeInsurance_Coverage_.webp';
+import '../assets/LifeInsurance_Coverage_.webp';
 
 const HealthInsurancePage = () => {
   return (
