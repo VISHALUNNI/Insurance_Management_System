@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import { useState } from 'react';
 import './PolicyPage.css'
 import { Link } from 'react-router-dom';
 import '../assets/36.png';
@@ -20,7 +20,7 @@ const policies = [
   },
 ];
 
-const PolicyCard = ({ name1,title, description,path }) => {
+const PolicyCard = ({ name1, title , description, path }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div className={`policy-card ${isHovered ? 'hovered' : ''}`} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>

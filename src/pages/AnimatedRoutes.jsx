@@ -1,4 +1,10 @@
-import React from "react";
+import { Route, Routes } from "react-router-dom";
+import {
+  Home, PolicyPage, ClaimsPage, HealthInsurancePage, VehicleInsurancePage, LoginPage, SignupPage, ForgotPasswordPage,
+ // CreateProfilePage, Dashboard, AdminDashboard, AdminRoute, PaymentSuccessPage, PurchasePolicyPage,
+  //PurchaseDetailsPage, UpdateProfilePage, ResetPasswordPage
+} from './pages'
+
 
 function AnimatedRoutes(){
     return(

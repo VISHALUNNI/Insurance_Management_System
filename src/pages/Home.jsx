@@ -1,6 +1,5 @@
-import React ,{ useState, useEffect} from "react";
 import './Home.css'
-import supabase from "../config/SupabaseClient";
+//import supabase from "../config/SupabaseClient";
 import { motion, AnimatePresence} from "framer-motion";
 import "../assets/gg.png";
 

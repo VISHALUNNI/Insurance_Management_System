@@ -1,4 +1,3 @@
-import React from 'react';
 import './HealthInsurace.css';
 import '../assets/LifeInsurance_Coverage_.webp';
 
