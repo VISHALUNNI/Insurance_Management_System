@@ -9,7 +9,7 @@
     border-radius: 5px;
   }
 .imag{
-  background-image: url('../assets/ver.jpg');
+  background-image: url('../../assets/ver.jpg');
   background-repeat: no-repeat;
   background-size: contain;
   width: 24vw;

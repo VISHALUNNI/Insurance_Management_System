@@ -1,7 +1,7 @@
 import './Home.css'
 //import supabase from "../config/SupabaseClient";
 import { motion, AnimatePresence} from "framer-motion";
-import "../assets/gg.png";
+import "../../assets/gg.png";
 
 
 function Home() {
