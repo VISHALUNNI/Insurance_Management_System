@@ -12,25 +12,6 @@ import {
 import logo1 from './logo1.png';
 
 
-// import Home from './pages/Home'
-// import PolicyPage from './pages/PolicyPage';
-// import ClaimsPage from "./pages/ClaimsPage";
-// import HealthInsurancePage from "./pages/HealthInsurancePage";
-// import VehicleInsurancePage from "./pages/VehicleInsurancePage";
-// import LoginPage from "./pages/LoginPage";
-// import SignupPage from "./pages/SignupPage";
-// import ForgotPasswordPage from "./pages/ForgotPassword/ForgotPasswordPage";
-// import CreateProfilePage from "./pages/CreateProfile/CreateProfilePage";
-// import Dashboard from "./pages/DashBoard";
-// import ResetPasswordPage from "./pages/ResetPassword";
-// import UpdateProfilePage from "./pages/UpdateProfile/UpdateProfilePage";
-// import PurchasePolicyPage from "./pages/PurchasePolicyPage";
-// import AdminDashboard from "./pages/AdminDashboard";
-// import AdminRoute from "./pages/AdminRoute"
-// import PurchaseOptionsPage from './pages/PurchaseOptionsPage'; // Import the PurchaseOptionsPage component
-// import PaymentSuccessPage from './pages/PaymentSuccessPage';
-// import PurchaseDetailsPage from "./pages/PurchaseDetailsPage";
-
 const NavbarAuthenticated = React.memo(({ onLogout, isAdmin }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
