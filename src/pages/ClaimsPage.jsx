@@ -63,7 +63,7 @@ const ClaimsPage = () => {
     <div>
       <div className='claims-page'>
         <h1>File a Claim</h1>
-        <form onSubmit={handleClaimSubmission}>
+        <form onSubmit={handleClaimSubmission} className='claims-form'>
           <div className="form-group">
             <label htmlFor="policyNumber">Policy Number:</label>
             <input

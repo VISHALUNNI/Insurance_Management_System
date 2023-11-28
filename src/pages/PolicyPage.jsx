@@ -44,7 +44,6 @@ const PolicyPage = () => {
     <div className="policy-cards-container">
         {policies.map((policy, index) => (
           <PolicyCard key={index} name1={policy.name1} title={policy.title} description={policy.description} path={policy.path} />
-        
         ))}
       </div>
       </div>
