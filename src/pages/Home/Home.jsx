@@ -14,7 +14,7 @@ function Home() {
        <div className="AboutUs">
          <h1 style={{color:'black'}}>About Us</h1>
         
-         <p style={{color:'black'}}>At 'HAPPILY INSURED', we are redefining the insurance management landscape, one policy at a time. As a forward-thinking startup in the world of insurance, we bring innovation, expertise, and a commitment to customer satisfaction to the forefront of our operations.</p>
+         <p style={{color:'black'}}>At &apos;HAPPILY INSURED&apos;, we are redefining the insurance management landscape, one policy at a time. As a forward-thinking startup in the world of insurance, we bring innovation, expertise, and a commitment to customer satisfaction to the forefront of our operations.</p>
        </div>
     
       <div className="grid">

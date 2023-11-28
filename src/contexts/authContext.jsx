@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import supabase from '../config/SupabaseClient'
+import supabase from '../config/SupabaseClient';
 
 const AuthContext = createContext();
 
@@ -22,7 +22,6 @@ export const AuthProvider = ({ children }) => {
         console.error('Error fetching user:', error.message);
       }
     };
-
     fetchUser();
   }, []);
 
@@ -43,9 +42,5 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
+    return useContext(AuthContext);
 };
