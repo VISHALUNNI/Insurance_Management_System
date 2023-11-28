@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import supabase from '../config/SupabaseClient';
+import supabase from '../../config/SupabaseClient';
 import './ClaimPage.css';
 
 const ClaimsPage = () => {
@@ -60,7 +60,7 @@ const ClaimsPage = () => {
   };
 
   return (
-    <div>
+    <div className='claims-page-content'>
       <div className='claims-page'>
         <h1>File a Claim</h1>
         <form onSubmit={handleClaimSubmission}>

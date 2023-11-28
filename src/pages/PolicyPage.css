@@ -44,14 +44,14 @@
     background-size: cover;
   }
   .health{
-  background-image: url('./36.png'); 
+  background-image: url('../assets/36.png'); 
   background-repeat: no-repeat;
   background-size: cover;
   width: 14vw;
   height: 14vw;
 }
 .vehi{
-  background-image: url('7767108.webp');
+  background-image: url('../assets/7767108.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 34px 0px;

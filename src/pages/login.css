@@ -24,7 +24,7 @@
     
   }
   .img{
-    background-image: url(pggg.jpeg);
+    background-image: url('../assets/pggg.j');
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 2px 11px 4px 12px rgba(0, 0, 0, 0.563);

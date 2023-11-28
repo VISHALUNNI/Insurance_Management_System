@@ -11,7 +11,6 @@ import {
 
 import logo1 from './logo1.png';
 
-
 const NavbarAuthenticated = React.memo(({ onLogout, isAdmin }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
@@ -57,6 +56,8 @@ const NavbarAuthenticated = React.memo(({ onLogout, isAdmin }) => {
     </>
   );
 });
+
+
 NavbarAuthenticated.displayName = 'NavbarAuthenticated';
 const NavbarDefault = React.memo(() => {
   return (

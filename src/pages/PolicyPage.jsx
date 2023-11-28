@@ -1,12 +1,11 @@
-import React , { useState } from 'react';
+import { useState } from 'react';
 import './PolicyPage.css'
 import { Link } from 'react-router-dom';
-import './36.png';
-import './7767108.webp';
+import '../assets/36.png';
+import '../assets/7767108.webp';
 
 const policies = [
   {
-    
     name1 : 'health',
     title: 'Health Insurance',
     description: 'Health insurance policies offer coverage for medical expenses, including doctor visits, hospital stays, and prescription drugs.',
@@ -20,7 +19,7 @@ const policies = [
   },
 ];
 
-const PolicyCard = ({ name1,title, description,path }) => {
+const PolicyCard = ({ name1, title , description, path }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div className={`policy-card ${isHovered ? 'hovered' : ''}`} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
@@ -44,7 +43,6 @@ const PolicyPage = () => {
     <div className="policy-cards-container">
         {policies.map((policy, index) => (
           <PolicyCard key={index} name1={policy.name1} title={policy.title} description={policy.description} path={policy.path} />
-        
         ))}
       </div>
       </div>

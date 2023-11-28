@@ -1,4 +1,10 @@
-import React from "react";
+import { Route, Routes } from "react-router-dom";
+import {
+  Home, PolicyPage, ClaimsPage, HealthInsurancePage, VehicleInsurancePage, LoginPage, SignupPage, ForgotPasswordPage,
+ // CreateProfilePage, Dashboard, AdminDashboard, AdminRoute, PaymentSuccessPage, PurchasePolicyPage,
+  //PurchaseDetailsPage, UpdateProfilePage, ResetPasswordPage
+} from './'
+
 
 function AnimatedRoutes(){
     return(
@@ -11,7 +17,6 @@ function AnimatedRoutes(){
         <Route path="/policies" element={<PolicyPage/>} />
         <Route path="/health-insurance" element={<HealthInsurancePage/>}/>
         <Route path="/vehicle-insurance" element={<VehicleInsurancePage/>}/>
-       
       </Routes> 
     )
 }

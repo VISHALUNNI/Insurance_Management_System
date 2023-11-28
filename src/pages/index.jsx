@@ -1,15 +1,15 @@
 export { default as AdminDashboard } from './AdminDashboard';
 export { default as AdminRoute } from './AdminRoute';
 export { default as AnimatedRoutes } from './AnimatedRoutes';
-export { default as ClaimsPage } from './ClaimsPage';
+export { default as ClaimsPage } from './ClaimsPage/ClaimsPage';
 export { default as Dashboard } from './DashBoard';
 export { default as HealthInsurancePage } from './HealthInsurancePage';
-export { default as Home } from './Home';
+export { default as Home } from './Home/Home';
 export { default as LoginPage } from './LoginPage';
-export { default as PolicyCard } from './PolicyCard';
+export { default as PolicyCard } from './PolicyCard/PolicyCard';
 export { default as PolicyPage } from './PolicyPage';
 export { default as PurchasePolicyPage } from './PurchasePolicyPage';
-export { default as ResetPasswordPage } from './ResetPassword';
+export { default as ResetPasswordPage } from './ResetPassword/ResetPassword';
 export { default as SignupPage } from './SignupPage';
 export { default as VehicleInsurancePage } from './VehicleInsurancePage';
 export { default as VehicleInsurancePurchasePage } from './VehicleInsurancePurchasePage';
@@ -17,5 +17,4 @@ export { default as UpdateProfilePage } from './UpdateProfile/UpdateProfilePage'
 export { default as CreateProfilePage } from './CreateProfile/CreateProfilePage';
 export { default as ForgotPasswordPage } from './ForgotPassword/ForgotPasswordPage';
 export { default as PurchaseDetailsPage } from './PurchaseDetailsPage';
-export { default as PurchaseOptionsPage } from './PurchaseOptionsPage';
 export { default as PaymentSuccessPage } from './PaymentSuccessPage';

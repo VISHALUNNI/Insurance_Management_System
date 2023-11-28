@@ -1,63 +1,71 @@
 
 .claims-page {
     max-width: 600px;
-    margin: 4vw 0vw 0vw 28vw;
+    min-width: 30vw;
+    margin: 2vw 15vw 0vw 15vw;
     padding: 20px;
     background-color: rgb(250, 251, 252);
     box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
-  
 .imag{
-  background-image: url(ver.jpg);
+  background-image: url('../assets/ver.jpg');
   background-repeat: no-repeat;
   background-size: contain;
-  width:26vw;
-  height: 18vw;
-  margin: -3vw 72vw;
+  width: 24vw;
+  height: auto;
+  margin-top: 12vh;
+  /*margin: -3vw 72vw; */
 
 }
-
   .claims-page h1 {
-    font-size: 1.5rem;
+    font-size : xx-large;
     margin-bottom: 20px;
   }
-  
+
+  .claims-page label {
+    font-size : large;
+    padding-left: 10px;
+    font-weight: bold;
+  }
+
   .claims-page form {
     display: flex;
     flex-direction: column;
   }
-  
+  .claims-page .form-group div {
+    margin-bottom: 0px;
+  }
 
   .claims-page .form-group {
     margin-bottom: 20px;
   }
   
- 
-  .claims-page label {
-    font-weight: bold;
-  }
-  
-
   .claims-page input, .claims-page textarea {
-    width: 100%;
+    width: 95%;
+    margin-top: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
   }
   
-
   .claims-page button {
+    margin-top: 10px;
     background-color: #333;
     color: #fff;
     border: 5px;
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
+    align-self: center;
   }
-  
- 
+
   .claims-page button:hover {
     background-color: #555;
   }
   
+  .claims-page-content {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 30px;
+  }
