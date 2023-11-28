@@ -28,7 +28,7 @@
     border-bottom: 2px solid white;
   }
   .navbar-profile button{
-    background-image:url(ptu.jpg);
+    background-image:url('./assets/ptu.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

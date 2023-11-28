@@ -3,7 +3,7 @@ h1,p,ul,li{
 }
 
 .ht{
-    background-image: url(im.png);
+    background-image: url('../assets/im.jpg');
     background-repeat: no-repeat;
     background-position: center top;
     height: 30vw;

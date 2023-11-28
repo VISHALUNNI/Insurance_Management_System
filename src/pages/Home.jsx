@@ -2,7 +2,7 @@ import React ,{ useState, useEffect} from "react";
 import './Home.css'
 import supabase from "../config/SupabaseClient";
 import { motion, AnimatePresence} from "framer-motion";
-import "./gg.png";
+import "../assets/gg.png";
 
 
 function Home() {

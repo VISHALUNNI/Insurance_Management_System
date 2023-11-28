@@ -17,5 +17,4 @@ export { default as UpdateProfilePage } from './UpdateProfile/UpdateProfilePage'
 export { default as CreateProfilePage } from './CreateProfile/CreateProfilePage';
 export { default as ForgotPasswordPage } from './ForgotPassword/ForgotPasswordPage';
 export { default as PurchaseDetailsPage } from './PurchaseDetailsPage';
-export { default as PurchaseOptionsPage } from './PurchaseOptionsPage';
 export { default as PaymentSuccessPage } from './PaymentSuccessPage';

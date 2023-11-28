@@ -1,8 +1,8 @@
 import React , { useState } from 'react';
 import './PolicyPage.css'
 import { Link } from 'react-router-dom';
-import './36.png';
-import './7767108.webp';
+import '../assets/36.png';
+import '../assets/7767108.webp';
 
 const policies = [
   {
@@ -10,7 +10,7 @@ const policies = [
     name1 : 'health',
     title: 'Health Insurance',
     description: 'Health insurance policies offer coverage for medical expenses, including doctor visits, hospital stays, and prescription drugs.',
-    path: '/health-insurance'
+    path: '../assets/health-insurance'
   },
   {
     name1 : 'vehi',

@@ -76,6 +76,8 @@ const NavbarAuthenticated = React.memo(({ onLogout, isAdmin }) => {
     </>
   );
 });
+
+
 NavbarAuthenticated.displayName = 'NavbarAuthenticated';
 const NavbarDefault = React.memo(() => {
   return (
