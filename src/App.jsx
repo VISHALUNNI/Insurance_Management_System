@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
-import supabase from "./config/SupabaseClient";
+import supabase from './config/SupabaseClient'
 import './app.css';
 //import AuthProvider from './context/AuthContext';
 
@@ -130,7 +130,7 @@ const App = React.memo(() => {
         <Route path="/profile-update" element={<UpdateProfilePage />} />
         <Route path="/purchase-policy" element={<PurchasePolicyPage />} />
         <Route path="/admin-dashboard" element={<AdminRoute element={<AdminDashboard />} />} />
-        <Route path="/purchase-options" element={<PurchaseDetailsPage />} />
+        <Route path="/purchase-details" element={<PurchaseDetailsPage />} />
         <Route path="/payment-success" element={<PaymentSuccessPage />} />
 
       </Routes>
