@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-do
 import supabase from './config/SupabaseClient'
 import './app.css';
 //import AuthProvider from './context/AuthContext';
-
+import { useAuth } from './contexts/authContext';
 import {
   Home, PolicyPage, ClaimsPage, HealthInsurancePage, VehicleInsurancePage, LoginPage, SignupPage, ForgotPasswordPage,
   CreateProfilePage, Dashboard, AdminDashboard, AdminRoute, PaymentSuccessPage, PurchasePolicyPage,
@@ -13,6 +13,7 @@ import {
 import logo1 from './logo1.png';
 
 const NavbarAuthenticated = React.memo(({ onLogout, isAdmin }) => {
+  const { user, handleLogin } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
