@@ -3,7 +3,7 @@ import {
   Home, PolicyPage, ClaimsPage, HealthInsurancePage, VehicleInsurancePage, LoginPage, SignupPage, ForgotPasswordPage,
  // CreateProfilePage, Dashboard, AdminDashboard, AdminRoute, PaymentSuccessPage, PurchasePolicyPage,
   //PurchaseDetailsPage, UpdateProfilePage, ResetPasswordPage
-} from './pages'
+} from './'
 
 
 function AnimatedRoutes(){
@@ -17,7 +17,6 @@ function AnimatedRoutes(){
         <Route path="/policies" element={<PolicyPage/>} />
         <Route path="/health-insurance" element={<HealthInsurancePage/>}/>
         <Route path="/vehicle-insurance" element={<VehicleInsurancePage/>}/>
-       
       </Routes> 
     )
 }
