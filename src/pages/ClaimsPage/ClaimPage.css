@@ -1,7 +1,8 @@
 
 .claims-page {
     max-width: 600px;
-    margin: 4vw 0vw 0vw 28vw;
+    min-width: 30vw;
+    margin: 2vw 15vw 0vw 15vw;
     padding: 20px;
     background-color: rgb(250, 251, 252);
     box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.1);
@@ -11,9 +12,10 @@
   background-image: url('../assets/ver.jpg');
   background-repeat: no-repeat;
   background-size: contain;
-  width: 26vw;
-  height: 18vw;
-  margin: -3vw 72vw;
+  width: 24vw;
+  height: auto;
+  margin-top: 12vh;
+  /*margin: -3vw 72vw; */
 
 }
   .claims-page h1 {
@@ -62,3 +64,8 @@
     background-color: #555;
   }
   
+  .claims-page-content {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 30px;
+  }

@@ -6,11 +6,10 @@ import '../assets/7767108.webp';
 
 const policies = [
   {
-    
     name1 : 'health',
     title: 'Health Insurance',
     description: 'Health insurance policies offer coverage for medical expenses, including doctor visits, hospital stays, and prescription drugs.',
-    path: '../assets/health-insurance'
+    path: '/health-insurance'
   },
   {
     name1 : 'vehi',

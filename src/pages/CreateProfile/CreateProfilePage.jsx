@@ -4,7 +4,7 @@ import supabase from "../../config/SupabaseClient";
 import './CreateProfilePage.css'
 
 const CreateProfilePage = () => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState('');

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import PolicyCard from './PolicyCard'; // Import the PolicyCard component
+import PolicyCard from './PolicyCard/PolicyCard'; // Import the PolicyCard component
 import supabase from '../config/SupabaseClient';
 import './Dashboard.css'; // Import the CSS file
 
