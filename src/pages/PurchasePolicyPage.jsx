@@ -20,7 +20,7 @@ const PurchasePolicyPage = () => {
       <div className='kk'>
         <h2>Purchase Policy</h2>
         <p>Select the type of policy you want to purchase:</p>
-        <div>
+        <div className='policy-buttons'>
           {/* Link to a new page for handling policy selection */}
           <Link to="/purchase-details?policyType=Health">
             <button>Health Insurance</button>

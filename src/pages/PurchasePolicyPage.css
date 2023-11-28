@@ -1,0 +1,19 @@
+.kk {
+    margin: 20px;
+}
+.policy-buttons {
+    display: flex;
+    align-items: center;
+    margin-left: 30px; 
+}
+button {
+    padding: 20px;
+    margin : 30px;
+    font-size: x-large;
+}
+h2 {
+    font-size: xx-large;
+}
+p {
+    font-size: large;
+}
