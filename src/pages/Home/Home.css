@@ -8,7 +8,7 @@
 }
 
 .hj{
-    background-image: url('../assets/insu.png');
+    background-image: url('../../assets/insu.png');
     background-repeat: no-repeat;
     background-position: center top;
     background-attachment:fixed;

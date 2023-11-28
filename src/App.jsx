@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
 import supabase from "./config/SupabaseClient";
 import './app.css';
+import AuthProvider from './context/AuthContext';
 
 import {
   Home, PolicyPage, ClaimsPage, HealthInsurancePage, VehicleInsurancePage, LoginPage, SignupPage, ForgotPasswordPage,
@@ -74,7 +75,7 @@ const NavbarDefault = React.memo(() => {
 });
 NavbarDefault.displayName = 'NavbarDefault';
 const App = React.memo(() => {
-  const [user, setUser] = useState(null);
+  {/*const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
@@ -104,8 +105,9 @@ const App = React.memo(() => {
     setUser(null);
     setIsAdmin(false);
   };
-
+*/}
   return (
+    <AuthProvider>
     <BrowserRouter>
       <nav className="navbar">
         {user ? (
@@ -134,6 +136,7 @@ const App = React.memo(() => {
 
       </Routes>
     </BrowserRouter>
+    </AuthProvider>
   );
 });
 App.displayName = 'App';
