@@ -24,9 +24,9 @@ export const AuthProvider = ({ children }) => {
           if (userError) {
             throw userError;
           }
-        //console.log(userData,isAdmin)
-          setUser(userData);
-        setIsAdmin(userData.role === 'admin');  //isAdmin maarunundo???
+        console.log(userData,isAdmin)
+        setUser(userData);
+        setIsAdmin(userData.role === 'admin'); 
       } catch (error) {
         console.error('Error fetching user:', error.message);
       }
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const handleLogout = async () => {
+  const onLogout = async () => {
     try {
       const { error } = await supabase.auth.signOut();
 
@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }) => {
   const AuthContextValue = {
     user,
     handleLogin,
-    handleLogout,
+    onLogout,
     isAdmin
     //role,
   };

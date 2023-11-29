@@ -15,9 +15,13 @@ export const NavbarAuthenticated = () => {
   };
 
   const handleLogout = async () => {
-    await onLogout();
-    setShowDropdown(false);
-    navigate('/');
+    try { 
+      onLogout();
+      setShowDropdown(false);
+      navigate('/');
+    } catch (error) {
+    console.log(error);
+    }
   };
 
   const toggleDropdown = () => {
@@ -47,8 +51,8 @@ export const NavbarAuthenticated = () => {
         )}
       </div>
     </>
-  );
-};
+    );
+  };
   
 export const NavbarDefault = (() => {
     return (
