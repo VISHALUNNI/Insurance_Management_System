@@ -22,11 +22,9 @@ const CreateProfilePage = () => {
       return;
     }
   
-    try {
-      // Get the current user
-      
+    try {      
     const { data: { user } } = await supabase.auth.getUser()
-      // Save the profile data to the Supabase database
+    console.log(user);
       const { data, error } = await supabase.from('customer').insert([
         {
           user_id: user.id,
@@ -38,11 +36,11 @@ const CreateProfilePage = () => {
           phone_number: phoneNumber,
         },
       ]).select();
-  
+      console.log(data);
       if (error) {
         throw error;
       }
-  
+      console.log(data);
       // Redirect to the user dashboard after successful profile creation
       navigate("/dashboard");
       window.location.reload();

@@ -1,52 +1,31 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import supabase from '../config/SupabaseClient';
+//import { AuthContext } from '../contexts/authContext'; // Update the path accordingly
+import { useAuth } from '../contexts/authContext';
 import './login.css';
 import { motion } from 'framer-motion';
-//import PropTypes from 'prop-types';
+//import supabase from '../config/SupabaseClient';
 
-const LoginPage = ({ onLogin }) => {
+const LoginPage = () => {
+  const { handleLogin } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleLogin = async (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const { user, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
-      if (error) {
-        throw error;
-      }
-
-      // Fetch user data from the user table to check the role
-      const { data, error: userError } = await supabase
-        .from('users')
-        .select('email, role') 
-        .eq('email', email)
-        .single();
-      console.log(data)
-      if (userError) {
-        throw userError;
-      }
-
-      // Check if the user has the 'admin' role
-      if (data && data.role && data.role.includes('admin')) {
-        // If the user is an admin, navigate to the admin dashboard
+      const user = await handleLogin({ email, password });
+      // Assuming your handleLogin function returns the user data upon successful login
+      if (user && user.role && user.role.includes('admin')) {
         navigate('/admin-dashboard');
-        window.location.reload();
       } else {
-        // If not an admin, proceed with regular user login
-        onLogin(user);
+        handleLogin(user);
         navigate('/dashboard');
-        window.location.reload();
       }
     } catch (error) {
-      alert('Invalid email or password');
       setErrorMessage('Invalid email or password');
       console.error('Error signing in:', error.message);
     }
@@ -61,7 +40,7 @@ const LoginPage = ({ onLogin }) => {
       >
         <div className='img'>
           <h2 className='login-title'>Login</h2>
-          <form onSubmit={handleLogin} className='login-form'>
+          <form onSubmit={handleLoginSubmit} className='login-form'>
             <div className="input-container" style={{ marginBottom: '10px' }}>
               <input
                 type="email"
@@ -96,3 +75,4 @@ const LoginPage = ({ onLogin }) => {
 };
 
 export default LoginPage;
+

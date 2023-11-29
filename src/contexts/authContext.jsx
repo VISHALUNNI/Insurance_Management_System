@@ -20,6 +20,10 @@ export const AuthProvider = ({ children }) => {
           .select('email, role')
           .eq('email', data.user.email)
           .single();
+
+          if (userError) {
+            throw userError;
+          }
         console.log(userData,isAdmin)
           setUser(userData);
         setIsAdmin(userData.role === 'admin');  //isAdmin maarunundo???
@@ -30,18 +34,49 @@ export const AuthProvider = ({ children }) => {
     fetchUser();
   }, []);
 
-  const handleLogin = (loggedInUser) => {
-    setUser(loggedInUser);
+  const handleLogin = async ({ email, password }) => {
+    try {
+      const { user, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) {
+        throw error;
+      }
+      const { data, error: userError } = await supabase
+        .from('users')
+        .select('email, role')
+        .eq('email', email)
+        .single();
+
+      if (userError) {
+        throw userError;
+      }
+      setUser(data);
+      setIsAdmin(data?.role === 'admin');
+      return data;
+    } catch (error) {
+      console.error('Error signing in:', error.message);
+      throw error; 
+    }
   };
 
-  const handleLogout = () => {
-    setUser(null);
-    setIsAdmin(false);
+  const handleLogout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+
+      if (error) {
+        throw error;
+      }
+      setUser(null);
+      setIsAdmin(false);
+    } catch (error) {
+      console.error('Error signing out:', error.message);
+    }
   };
+
   const AuthContextValue = {
     user,
     handleLogin,
-    handleLogout
+    handleLogout,
+    isAdmin
     //role,
   };
 
