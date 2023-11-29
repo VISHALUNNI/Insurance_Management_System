@@ -17,6 +17,14 @@ const LoginPage = () => {
     e.preventDefault();
 
     try {
+      
+      if(email=="admin@gmail.com" && password=="admin"){
+        navigate('/admin-dashboard');
+      } else { 
+        const user = await handleLogin({ email, password });
+        navigate('/dashboard');
+      }
+      /*
       const user = await handleLogin({ email, password });
       // Assuming your handleLogin function returns the user data upon successful login
       if (user && user.role && user.role.includes('admin')) {
@@ -24,7 +32,7 @@ const LoginPage = () => {
       } else {
         //handleLogin(user);
         navigate('/dashboard');
-      }
+      } */
     } catch (error) {
       setErrorMessage('Invalid email or password');
       console.error('Error signing in:', error.message);

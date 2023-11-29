@@ -42,6 +42,7 @@ export const AuthProvider = ({ children }) => {
       }
       const { data, error: userError } = await supabase
         .from('users')
+        //.select()
         .select('email, role')
         .eq('email', email)
         .single();

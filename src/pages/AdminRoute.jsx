@@ -1,5 +1,7 @@
-import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+//import React from 'react';
+import { 
+  //Route, 
+  Navigate } from 'react-router-dom';
 import supabase from '../config/SupabaseClient'; // Import your Supabase client configuration
 
 const AdminRoute = ({ element }) => {
