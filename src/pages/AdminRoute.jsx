@@ -17,7 +17,6 @@ const AdminRoute = ({ element }) => {
 
       // Check if the user is an admin (You need to adapt this based on your data structure)
       const isAdmin = data.role === 'admin';
-
       return isAdmin;
     } catch (error) {
       console.error('Error checking admin status:', error.message);

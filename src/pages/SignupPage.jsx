@@ -18,7 +18,6 @@ const SignupPage = () => {
       return;
     }
 
-
     try {
       const { user, error } = await supabase.auth.signUp({
         username,
