@@ -22,7 +22,7 @@ const LoginPage = () => {
       if (user && user.role && user.role.includes('admin')) {
         navigate('/admin-dashboard');
       } else {
-        handleLogin(user);
+        //handleLogin(user);
         navigate('/dashboard');
       }
     } catch (error) {

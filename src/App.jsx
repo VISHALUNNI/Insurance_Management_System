@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, 
- // Link, useNavigate 
+import { Routes, Route, 
+ // BrowserRouter, Link, useNavigate 
 } from "react-router-dom";
 //import supabase from '../config/SupabaseClient'
 import './app.css';
@@ -10,6 +10,7 @@ import {
   CreateProfilePage, Dashboard, AdminDashboard, AdminRoute, PaymentSuccessPage, PurchasePolicyPage,
   PurchaseDetailsPage, UpdateProfilePage, ResetPasswordPage
 } from './pages'
+import { AuthProvider } from "./contexts/authContext";
 
 const App = (() => {
   const { user, handleLogin, handleLogout, isAdmin } = useAuth();
@@ -45,7 +46,7 @@ const App = (() => {
   };
 */}
   return (
-    <BrowserRouter>
+    <AuthProvider>
       <nav className="navbar">
         {user ? (
           <NavbarAuthenticated onLogout={handleLogout} isAdmin={isAdmin} />
@@ -71,7 +72,7 @@ const App = (() => {
         <Route path="/purchase-details" element={<PurchaseDetailsPage />} />
         <Route path="/payment-success" element={<PaymentSuccessPage />} />
       </Routes>
-    </BrowserRouter>
+    </AuthProvider>
   );
 });
 

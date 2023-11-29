@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
           if (userError) {
             throw userError;
           }
-        console.log(userData,isAdmin)
+        //console.log(userData,isAdmin)
           setUser(userData);
         setIsAdmin(userData.role === 'admin');  //isAdmin maarunundo???
       } catch (error) {
@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{AuthContextValue}}>
+    <AuthContext.Provider value={AuthContextValue}>
       {children}
     </AuthContext.Provider>
   );
